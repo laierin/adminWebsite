@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <!-- hamburger -->
+      <ion-menu-button color="medium"></ion-menu-button>
+      <!-- back button -->
+      <ion-back-button defaultHref="/"></ion-back-button>
+      <ion-title>Weekly</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content><strong class="title">Weekly Record</strong>
+  <ion-grid class="content">
+    <ion-row>
+      <ion-col class="pickerCol">
+        <ion-label class="label">Date:</ion-label>
+        <!-- <ion-datetime pickerFormat="DD,MMMM,YYYY" displayFormat="DD MMMM YYYY" value="19 February 2021" class="picker">
+        </ion-datetime> -->
+        <!-- (click)="picker.open()" -->
+        <button class="pickerButton" ion-button icon-right>
+          <ion-datetime class="picker" #picker pickerFormat="DD MMMM YYYY" displayFormat="DD MMMM YYYY"  [min]="datePickerMin" 
+          [(ngModel)]="datePicker" (ionChange)="changeDate()"></ion-datetime>
+          <ion-icon name="calendar-outline" class="calendar"></ion-icon>
+        </button>
+        
+        <!-- <ion-icon name="calendar-outline" class="calendar"></ion-icon> -->
+      </ion-col>
+      <ion-col class="buttonCol"><ion-button routerLink="/home/statistic/weekly/weekly-details" routerDirection="forward" shape="round" color="medium" class="getDetail">Get Detail</ion-button></ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

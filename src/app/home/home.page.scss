@@ -1,0 +1,65 @@
+// when click
+.active-link {
+  font-weight: bold;
+  --background: white;
+}
+
+.active-link p{
+  color: black;
+}
+
+.active-link .dashboard{
+  src: url("../../assets/dashboardblack.png");
+}
+
+// side menu size
+ion-split-pane{
+  --border: none;
+  --side-max-width: 260px;
+  --side-min-width: 260px;
+}
+
+//Logo and title
+ion-header{
+  text-align: center;
+}
+
+ion-title{
+  font-size: 15px;
+}
+// Logo and title color
+ion-toolbar{
+  --background: #6B0707;
+  --padding-top: 5%;
+  --padding-bottom: 5%;
+  color: white;
+}
+
+// side menu background
+ion-menu{
+  ion-content , ion-footer{
+      --ion-background-color:#6B0707;
+  }
+}
+// all the title color
+p{
+  color: white;
+}
+
+//logo size
+img{
+  width: 35px;
+  height: auto;
+}
+
+// this img not same as others
+.statistic {
+  width: 60px;
+  height: 34px;
+}
+
+// center all the logo and title in the content
+ion-item{
+  text-align: center;
+}
+

@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <!-- hamburger -->
+      <ion-menu-button color="medium"></ion-menu-button>
+      <ion-title>Dashboard</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="content">
+    <ion-row>
+      <ion-col class="contentLink">
+        <ion-label><p>Customer Record</p></ion-label>
+        <div class="item">
+          <a routerLink= "/home/customer" routerDirection="forward" title="Customer Record">
+            <img src="../../assets/CustomerRecordPic.PNG" alt="Customer Record Picture"/>
+          </a>
+        </div>
+      </ion-col>
+
+      <ion-col class="contentLink">
+        <ion-label><p>Weekly Report</p></ion-label>
+        <div class="item">
+          <a routerLink= "/home/statistic/weekly" routerDirection="forward" title="Weekly Report">
+            <img src="../../assets/WeeklyReportPic.PNG" alt="Weekly Report Picture"/>
+          </a>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="contentLink">
+          <ion-label><p>Daily Report</p></ion-label>
+          <div class="item">
+            <a routerLink= "/home/statistic/daily" routerDirection="forward" title="Daily Report">
+              <img src="../../assets/DailyReportPic.PNG" alt="Daily Report Picture"/>
+            </a>
+          </div>
+      </ion-col>
+
+      <ion-col class="contentLink">
+        <ion-label><p>Monthly Report</p></ion-label>
+        <div class="item">
+          <a routerLink= "/home/statistic/monthly" routerDirection="forward" title="Monthly Report">
+            <img src="../../assets/MonthlyReportPic.PNG" alt="Monthly Report Picture"/>
+          </a>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

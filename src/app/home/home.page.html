@@ -1,0 +1,65 @@
+<ion-split-pane contentId="main">
+  <ion-menu contentId="main">
+    <ion-header>
+      <ion-toolbar>
+        <img src="assets/logo.png" alt="Logo" class="logo"/>
+        <ion-title>E-Waiting Line<br>Management System</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <!-- Side Menu -->
+    <ion-content>
+      <!-- Dashboard -->
+      <ion-menu-toggle autoHide="false" >
+        <ion-item routerLink="/home/dashboard" routerDirection="root" routerLinkActive="active-link">
+          <ion-label>
+            <div class="sidemenu">
+              <img src="assets/dashboardwhite.png" alt="Logo" class="dashboard"/>
+              <p>Dashboard</p>
+            </div>
+          </ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+
+      <!-- Customer -->
+      <ion-menu-toggle autoHide="false">
+        <ion-item routerLink= "/home/customer" routerDirection="root" routerLinkActive="active-link">
+          <ion-label>
+            <div class="sidemenu">
+              <img src="assets/customerwhite.png" alt="Customer Record" class="customer"/>
+              <p>Customer</p>
+            </div>
+          </ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+
+      <!-- Statistic -->
+      <ion-menu-toggle autoHide="false">
+        <ion-item routerLink= "/home/statistic" routerDirection="root" routerLinkActive="active-link">
+          <ion-label>
+            <div class="sidemenu">
+              <img src="assets/statisticwhite2.png" alt="Statistic" class="statistic"/>
+              <p>Statistic</p>
+            </div>
+          </ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+
+    </ion-content>
+
+    <ion-footer>
+      <!-- Logout -->
+      <ion-menu-toggle autoHide="false">
+        <ion-item routerLink= "/login" routerDirection="root" routerLinkActive="active-link">
+          <ion-label>
+            <div class="sidemenu">
+              <img src="assets/logoutwhite.gif" alt="Log Out" class="logOut"/>
+              <p>Log Out</p>
+            </div>
+          </ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+    </ion-footer>
+  </ion-menu>
+  <ion-router-outlet id="main"></ion-router-outlet>
+</ion-split-pane>
