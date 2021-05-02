@@ -1,31 +1,81 @@
+.menu{
+    color: white;
+    background-color:  #6B0707;
+    height: 100%;
+    width: 100%
+}
+
+ion-item{
+    --ion-item-background: #6B0707;
+    text-align: center;
+}
+
+.menu ion-label{
+    color: white;
+}
+
+.menu img{
+    width: 30%;
+    height: auto;
+}
+
+.logOut{
+    margin-top:15%;
+}
+
+ion-split-pane{
+    width: 50%;
+}
+
+a{
+    text-decoration: none;
+}
+
+.menu strong{
+    font-size: 80%;
+}
+
 .content{
-    display: flex;
-    align-items: center;
-    margin: 0 auto;
-    justify-content: center;
+    margin-left: 30%;
+    margin-right: 10%;
+    margin-top: 2%;
 }
 
-ion-content{
-    --padding-top: 2%;
+.title{
+    margin-left: 43%;
+    margin-right: auto;
 }
 
-ion-icon{
-    font-size: 25px;
+.getDetail{
+    height: 50%;
+    width: auto;
+}
+
+.picker{
+    border-style: solid;
+    border-width: 1%;
+    border-color: grey;
+    padding-right: 10%;
+    padding-top: 6%;
+}
+
+.label{
+    float: left;
+    margin-top: 2%;
+    margin-right: 20%;
+}
+
+.calendar{
+    float: right;
+    margin-right: 10%;
+    margin-top: -15%;
 }
 
 .pickerButton{
-    width: 250px;
-    height: 45px;
+    width: 60%;
     background-color: white;
-    margin: 0 20px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    border: 1px solid gray;
-    border-radius: 5px;
 }
 
-//
 .recordTable{
     text-align: center;
     margin-left: 35%;

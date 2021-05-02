@@ -1,4 +1,39 @@
+.menu{
+    color: white;
+    background-color:  #6B0707;
+    height: 100%;
+    width: 100%
+}
 
+ion-item{
+    --ion-item-background: #6B0707;
+    text-align: center;
+}
+
+.menu ion-label{
+    color: white;
+}
+
+.menu img{
+    width: 30%;
+    height: auto;
+}
+
+.logOut{
+    margin-top:15%;
+}
+
+ion-split-pane{
+    width: 50%;
+}
+
+a{
+    text-decoration: none;
+}
+
+.menu strong{
+    font-size: 80%;
+}
 
 .content{
     margin-left: 30%;

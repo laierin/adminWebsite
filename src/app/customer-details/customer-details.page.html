@@ -9,24 +9,24 @@
 </ion-header>
 
 <ion-content>
-  <div class="content">
-    <p>Date:</p>
-    <!-- <ion-datetime pickerFormat="DD,MMMM,YYYY" displayFormat="DD MMMM YYYY" value="19 February 2021" class="picker">
-    </ion-datetime> -->
-    <!-- (click)="picker.open()" -->
-    <button class="pickerButton" ion-button icon-right>
-      <ion-datetime class="picker" 
-        #picker pickerFormat="DD MMMM YYYY" 
-        displayFormat="DD MMMM YYYY"  
-        [min]="datePickerMin" 
-        [(ngModel)]="datePicker" 
-        (ionChange)="changeDate()">
-      </ion-datetime>
-      <ion-icon name="calendar-outline" class="calendar"></ion-icon>
-    </button>
-    <!-- <ion-icon name="calendar-outline" class="calendar"></ion-icon> -->
-    <ion-button (click)="getCustomerDetails()" shape="round" color="medium" class="getDetail">Get Detail</ion-button>
-  </div>
+  <ion-grid class="content">
+    <ion-row>
+      <ion-col class="pickerCol">
+        <ion-label class="label">Date:</ion-label>
+        <!-- <ion-datetime pickerFormat="DD,MMMM,YYYY" displayFormat="DD MMMM YYYY" value="19 February 2021" class="picker">
+        </ion-datetime> -->
+        <!-- (click)="picker.open()" -->
+        <button class="pickerButton" ion-button icon-right>
+          <ion-datetime class="picker" #picker pickerFormat="DD MMMM YYYY" displayFormat="DD MMMM YYYY"  [min]="datePickerMin" 
+          [(ngModel)]="datePicker" (ionChange)="changeDate()"></ion-datetime>
+          <ion-icon name="calendar-outline" class="calendar"></ion-icon>
+        </button>
+        
+        <!-- <ion-icon name="calendar-outline" class="calendar"></ion-icon> -->
+      </ion-col>
+      <ion-col class="buttonCol"><ion-button (click)="getCustomerDetails()" shape="round" color="medium" class="getDetail">Get Detail</ion-button></ion-col>
+    </ion-row>
+  </ion-grid>
 
   <ion-button shape="round" color="medium" class="saveCopy">Save a Copy</ion-button>
   <strong class="recordTable">*Table about the Record of Customers*</strong>

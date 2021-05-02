@@ -1,3 +1,44 @@
+.menu{
+    color: white;
+    background-color:  #6B0707;
+    height: 100%;
+    width: 100%
+}
+
+ion-item{
+    --ion-item-background: #6B0707;
+    text-align: center;
+}
+
+.menu ion-label{
+    color: white;
+}
+
+.menu img{
+    width: 30%;
+    height: auto;
+}
+
+.logOut{
+    margin-top:15%;
+}
+
+ion-split-pane{
+    width: 50%;
+}
+
+a{
+    text-decoration: none;
+}
+
+strong{
+    font-size: 80%;
+}
+
+.pageContent{
+    margin-top: 2%;
+}
+
 .chooseDate{
     float: right;
     height: 80%;
@@ -5,14 +46,7 @@
 }
 
 .imgLink{
-    height: 200px;
+    height: 100%;
     width: auto;
     border-style: none;
-}
-
-.contentTitle{
-    margin: 2% 10px ;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
