@@ -8,58 +8,97 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content><ion-grid class="pageContent">
-    <ion-row>
-      <ion-col>Daily Report</ion-col>
-      <ion-col>Weekly Report</ion-col>
-      <ion-col>Monthly Report</ion-col>
-    </ion-row>
+<ion-content>
+  <ion-grid>
+    <ion-row class="abc">
+      <!-- daily -->
+      <ion-col class="contentTitle">
+        <ion-row >
+          <ion-col>Daily Report</ion-col>
+        </ion-row>
+        
+        <ion-row >
+          <ion-col>
+            <ion-button class="imgLink" routerLink="/home/statistic/daily/daily-details" routerDirection="forward">
+              <img src="../../assets/DailyReportPic.PNG" alt="Daily Report"/>
+            </ion-button>
+          </ion-col>
+        </ion-row>
 
-    <ion-row>
-      <ion-col>
-        <ion-button class="imgLink" routerLink="/home/statistic/daily/daily-details" routerDirection="forward">
-          <img src="../../assets/DailyReportPic.PNG" alt="Daily Report"/>
-        </ion-button>
-      </ion-col>
-      <ion-col>
-        <ion-button class="imgLink" routerLink="/home/statistic/weekly/weekly-details" routerDirection="forward">
-          <img src="../../assets/WeeklyReportPic.PNG" alt="Weekly Report"/>
-        </ion-button>
-      </ion-col>
-      <ion-col>
-        <ion-button class="imgLink" routerLink="/home/statistic/monthly/monthly-details" routerDirection="forward">
-          <img src="../../assets/MonthlyReportPic.PNG" alt="Monthly Report"/>
-        </ion-button>
-      </ion-col>
-    </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button class="imgLink" routerLink="/home/statistic/daily/daily-details" routerDirection="forward">
+              <img src="../../assets/DailyReportPic2.PNG" alt="Daily Report"/>
+            </ion-button>
+          </ion-col>
+        </ion-row>
 
-    <ion-row>
-      <ion-col>
-        <ion-button class="imgLink" routerLink="/home/statistic/daily/daily-details" routerDirection="forward">
-          <img src="../../assets/DailyReportPic2.PNG" alt="Daily Report"/>
-        </ion-button>
-      </ion-col>
-      <ion-col>
-        <ion-button class="imgLink" routerLink="/home/statistic/weekly/weekly-details" routerDirection="forward">
-          <img src="../../assets/WeeklyReportPic2.PNG" alt="Weekyl Report"/>
-        </ion-button>
-      </ion-col>
-      <ion-col>
-        <ion-button class="imgLink" routerLink="/home/statistic/monthly/monthly-details" routerDirection="forward">
-          <img src="../../assets/MonthlyReportPic2.PNG" alt="Monthly Report"/>
-        </ion-button>
-      </ion-col>
-    </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button routerLink="/home/statistic/daily" routerDirection="forward" shape="round" color="medium" class="chooseDate">CHOOSE OTHER DATE</ion-button>
+          </ion-col>
+        </ion-row>
 
-    <ion-row>
-      <ion-col>
-        <ion-button routerLink="/home/statistic/daily" routerDirection="forward" shape="round" color="medium" class="chooseDate">CHOOSE OTHER DATE</ion-button>
       </ion-col>
-      <ion-col>
-        <ion-button routerLink="/home/statistic/weekly" routerDirection="forward" shape="round" color="medium" class="chooseDate">CHOOSE OTHER DATE</ion-button>
+    
+      <!-- weekly -->
+      <ion-col class="contentTitle">
+        <ion-row>
+          <ion-col>Weekly Report</ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-button class="imgLink" routerLink="/home/statistic/weekly/weekly-details" routerDirection="forward">
+              <img src="../../assets/WeeklyReportPic.PNG" alt="Weekly Report"/>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-button class="imgLink" routerLink="/home/statistic/weekly/weekly-details" routerDirection="forward">
+              <img src="../../assets/WeeklyReportPic2.PNG" alt="Weekyl Report"/>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+        
+        <ion-row>
+          <ion-col>
+            <ion-button routerLink="/home/statistic/weekly" routerDirection="forward" shape="round" color="medium" class="chooseDate">CHOOSE OTHER DATE</ion-button>
+          </ion-col>
+        </ion-row>
+
       </ion-col>
-      <ion-col>
-        <ion-button routerLink="/home/statistic/monthly" routerDirection="forward" shape="round" color="medium" class="chooseDate">CHOOSE OTHER DATE</ion-button>
+    
+      <!-- monthly -->
+      <ion-col class="contentTitle">
+        <ion-row>
+          <ion-col>Monthly Report</ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-button class="imgLink" routerLink="/home/statistic/monthly/monthly-details" routerDirection="forward">
+              <img src="../../assets/MonthlyReportPic.PNG" alt="Monthly Report"/>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-button class="imgLink" routerLink="/home/statistic/monthly/monthly-details" routerDirection="forward">
+              <img src="../../assets/MonthlyReportPic2.PNG" alt="Monthly Report"/>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+        
+        <ion-row>
+          <ion-col>
+            <ion-button routerLink="/home/statistic/monthly" routerDirection="forward" shape="round" color="medium" class="chooseDate">CHOOSE OTHER DATE</ion-button>
+          </ion-col>
+        </ion-row>
+
       </ion-col>
     </ion-row>
   </ion-grid>
