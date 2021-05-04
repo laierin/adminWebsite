@@ -8,8 +8,61 @@
   color: black;
 }
 
+//active dashboard
 .active-link .dashboard{
-  src: url("../../assets/dashboardblack.png");
+  opacity: 0%;
+}
+
+.active-link .dashboard2{
+  opacity: 100%;
+  margin-right: 30%;
+}
+
+.dashboard2{
+  opacity: 0%;
+}
+
+.dashboard{
+  margin-left: 15%;
+}
+
+//active customer
+.active-link .customer{
+  opacity: 0%;
+}
+
+.active-link .customer2{
+  opacity: 100%;
+  margin-right: 30%;
+}
+
+.customer2{
+  opacity: 0%;
+}
+
+.customer{
+  margin-left: 15%;
+}
+
+//active statistic
+.active-link .statistic{
+  opacity: 0%;
+}
+
+.active-link .statistic2{
+  opacity: 100%;
+  width: 25%;
+  height: auto;
+  margin-right: 40%;
+  margin-left: -5%;
+}
+
+.statistic2{
+  opacity: 0%;
+}
+
+.statistic{
+  margin-left: 15%;
 }
 
 // side menu size

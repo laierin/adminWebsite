@@ -1,44 +1,46 @@
-
-
 .content{
-    margin-left: 30%;
-    margin-right: 10%;
-    margin-top: 2%;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    justify-content: center;
 }
 
-.title{
-    margin-left: 43%;
-    margin-right: auto;
+ion-content{
+    --padding-top: 2%;
 }
 
-.getDetail{
-    height: 50%;
-    width: auto;
-}
-
-.picker{
-    border-style: solid;
-    border-width: 1%;
-    border-color: grey;
-    padding-right: 10%;
-    padding-top: 6%;
-}
-
-.label{
-    float: left;
-    margin-top: 2%;
-    margin-right: 20%;
-}
-
-.calendar{
-    float: right;
-    margin-right: 10%;
-    margin-top: -15%;
+ion-icon{
+    font-size: 25px;
+    position: absolute;
 }
 
 .pickerButton{
-    width: 60%;
+    width: 150px;
+    height: 45px;
     background-color: white;
+    margin: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+.picker{
+    width: 250px;
+    text-align: left;
+    font-size: 15px;
+    --padding-top: 12%;
+}
+
+.company{
+    height: 90px;
+    width: auto;
+    margin-left: 450px;
+    margin-right: auto;
+}
+
+.title{
+    margin-left: 45%;
 }
 
 

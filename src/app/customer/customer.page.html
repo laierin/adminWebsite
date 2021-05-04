@@ -2,12 +2,15 @@
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button color="medium"></ion-menu-button>
-      <ion-title>Customer Record</ion-title>
     </ion-buttons>
+    <ion-title>
+      <img src="../../assets/hnmLogo.png" class="company" alt="Company Logo"/>
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-label class="title"><strong>Customer Record</strong></ion-label>
   <div class="content">
       <p class="label">Date:</p>
       <button class="pickerButton" ion-button icon-right>
@@ -16,10 +19,12 @@
           displayFormat="DD MMMM YYYY"  
           [min]="datePickerMin" 
           [(ngModel)]="datePicker" 
-          (ionChange)="changeDate()">
+          >
         </ion-datetime>
         <ion-icon name="calendar-outline" class="calendar"></ion-icon>
       </button>
-      <ion-button routerLink="/home/customer/customer-details" routerDirection="forward" shape="round" color="medium" class="getDetail">Get Detail</ion-button>
+      <ion-button (click)="changeDate(datePicker)" shape="round" color="medium" class="getDetail">Get Detail</ion-button>
   </div>
+
+  <!-- <p>{{datePicker}}</p> -->
 </ion-content>

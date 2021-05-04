@@ -3,12 +3,16 @@
     <ion-buttons slot="start">
       <ion-menu-button color="medium"></ion-menu-button>
       <ion-back-button defaultHref="/"></ion-back-button>
-      <ion-title>Customer Record</ion-title>
+      <!-- <ion-title>Customer Record</ion-title> -->
+      <ion-title>
+        <img src="../../assets/hnmLogo.png" class="company" alt="Company Logo"/>
+      </ion-title>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-label class="title"><strong>Customer Record</strong></ion-label>
   <div class="content">
     <p>Date:</p>
     <button class="pickerButton" ion-button icon-right>
@@ -24,7 +28,7 @@
     <ion-button (click)="getCustomerDetails()" shape="round" color="medium" class="getDetail">Get Detail</ion-button>
   </div>
 
-  <ion-button shape="round" color="medium" class="saveCopy">Save a Copy</ion-button>
+  <ion-button shape="round" color="medium" class="saveCopy" (click)="GetData()">Save a Copy</ion-button>
 
   <ion-grid>
     <ion-row>
@@ -44,8 +48,30 @@
         <p>°C</p>
       </ion-col>
     </ion-row>
-
-    
-
+    <!-- <ion-row>
+      <ion-col>
+        <p>No</p>
+      </ion-col>
+      <ion-col>
+        <p>{{time}}</p>
+      </ion-col>
+      <ion-col>
+        <p>{{name}}</p>
+      </ion-col>
+      <ion-col>
+        <p>{{phonNum}}</p>
+      </ion-col>
+      <ion-col>
+        <p>{{tem}}</p>
+      </ion-col>
+    </ion-row> -->
   </ion-grid>
+
+  <!-- <ion-item *ngFor="let item of items">
+    {{item}}
+  </ion-item> -->
+  <!-- <ion-item *ngFor="let item of items | async">
+    <p>{{item.Customer_ID}}</p>
+  </ion-item> -->
+
 </ion-content>
