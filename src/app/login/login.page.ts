@@ -61,7 +61,8 @@ export class LoginPage implements OnInit{
       resp.forEach(element => {
         this.shopID = element.get('Shop_ID');
         this.globalVar.current_shopID = this.shopID;
-        alert('U log in as admin')
+        console.log("Success log in as admin")
+
       }) 
     }); //use subscribe, foreach if no document id
   }

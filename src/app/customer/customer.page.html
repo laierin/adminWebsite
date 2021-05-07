@@ -16,7 +16,7 @@
       <button class="pickerButton" ion-button icon-right>
         <ion-datetime class="picker"
           #picker pickerFormat="DD MMMM YYYY" 
-          displayFormat="DD MMMM YYYY"  
+          displayFormat="DD MMM YYYY"  
           [min]="datePickerMin" 
           [(ngModel)]="datePicker" 
           >
@@ -26,5 +26,5 @@
       <ion-button (click)="changeDate(datePicker)" shape="round" color="medium" class="getDetail">Get Detail</ion-button>
   </div>
 
-  <!-- <p>{{datePicker}}</p> -->
+  <p>{{datePicker}}</p>
 </ion-content>

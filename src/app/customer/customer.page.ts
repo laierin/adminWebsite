@@ -28,6 +28,7 @@ export class CustomerPage implements OnInit {
     this.router.navigate(['home/customer/customer-details']);
   }
   
+  
 }
 
 

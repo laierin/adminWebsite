@@ -28,7 +28,7 @@
     <ion-button (click)="getCustomerDetails()" shape="round" color="medium" class="getDetail">Get Detail</ion-button>
   </div>
 
-  <ion-button shape="round" color="medium" class="saveCopy" (click)="GetData()">Save a Copy</ion-button>
+  <ion-button shape="round" color="medium" class="saveCopy" (click)="getData()">Save a Copy</ion-button>
 
   <!-- <ion-grid>
     <ion-row>
@@ -75,6 +75,18 @@
       <p>{{r.cutomerWalkInDate}}</p>
       <p>{{r.cutomerWalkInTime}}</p>
       <p>{{r.customerTemp}}</p>
+      <br>
+    </div>
+  </ion-list>
+
+  <ion-list>
+    <div *ngFor="let d of dependentArray">
+      <p>{{d.dependentName}}</p>
+      <p>{{d.dependentPhoneNum}}</p>
+      <p>{{d.dependentwalkInDate}}</p>
+      <p>{{d.dependentwalkInTime}}</p>
+      <p>{{d.dependentTemp}}</p>
+      <!-- <p>{{r.customerTemp}}</p> -->
       <br>
     </div>
   </ion-list>
