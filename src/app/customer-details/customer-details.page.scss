@@ -5,10 +5,6 @@
     justify-content: center;
 }
 
-ion-content{
-    --padding-top: 2%;
-}
-
 ion-icon{
     font-size: 25px;
     position: absolute;
@@ -46,10 +42,8 @@ ion-row, ion-col{
 }
 
 .saveCopy{
-    height: 20px;
-    width: auto;
-    margin-left: 60%;
-    margin-top: 5%;
+    margin-left: 80%;
+    margin-top: 2%;
 }
 
 .company{
@@ -59,6 +53,6 @@ ion-row, ion-col{
     margin-right: auto;
   }
 
-  .title{
-    margin-left: 45%;
+.title{
+    text-align: center;
 }

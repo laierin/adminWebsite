@@ -3,9 +3,11 @@ import { NavController } from '@ionic/angular';
 
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
-import firebase from 'firebase/app';
-
 import { first } from 'rxjs/operators';
+
+import { GlobalVariable } from '../global-variables';
+import { AngularFirestore } from '@angular/fire/firestore';
+
 
 @Component({
   selector: 'app-home',
@@ -18,11 +20,16 @@ export class LoginPage implements OnInit{
   admin_email: string = "";
   admin_password: string = "";
   logindeterminer: boolean = false;
+  public shopID: string;
 
   constructor(
     public navCtrl: NavController,
     public ngFireAuth: AngularFireAuth,
-    public router: Router) {
+    public router: Router,
+    public globalVar: GlobalVariable, 
+    public afs: AngularFirestore
+    ) {
+      this.globalVar = globalVar;
   }
 
   ngOnInit(){
@@ -40,8 +47,23 @@ export class LoginPage implements OnInit{
         const user = await this.isLoggedIn();
         if (user)
           this.router.navigate(['home']);
+          this.admin_email = ''; //Clear inputs
+          this.admin_password = '';
       },
       (err) => alert(err.message)
     ).catch(err => alert(err.message));
+    this.getIdFromEmail();
   }
+
+  getIdFromEmail() { //get id from db with email
+    this.afs.collection(
+      'Shop', ref => ref.where('Email', '==', this.admin_email)).get().subscribe(resp => {
+      resp.forEach(element => {
+        this.shopID = element.get('Shop_ID');
+        this.globalVar.current_shopID = this.shopID;
+        alert('U log in as admin')
+      }) 
+    }); //use subscribe, foreach if no document id
+  }
+
 }

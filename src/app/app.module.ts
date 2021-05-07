@@ -14,6 +14,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../environments/environment'
 import { from } from 'rxjs';
+import { GlobalVariable } from './global-variables';
 
 
 @NgModule({
@@ -29,7 +30,13 @@ import { from } from 'rxjs';
     AngularFireStorageModule,
     AngularFirestoreModule
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [{ 
+    provide: RouteReuseStrategy, 
+    useClass: IonicRouteStrategy 
+  },
+    GlobalVariable,
+],
+
   bootstrap: [AppComponent],
 })
 export class AppModule {}

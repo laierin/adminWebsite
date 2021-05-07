@@ -12,7 +12,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-label class="title"><strong>Customer Record</strong></ion-label>
+  <p class="title"><strong>Customer Record</strong></p>
   <div class="content">
     <p>Date:</p>
     <button class="pickerButton" ion-button icon-right>
@@ -30,7 +30,7 @@
 
   <ion-button shape="round" color="medium" class="saveCopy" (click)="GetData()">Save a Copy</ion-button>
 
-  <ion-grid>
+  <!-- <ion-grid>
     <ion-row>
       <ion-col>
         <p>No</p>
@@ -48,7 +48,7 @@
         <p>°C</p>
       </ion-col>
     </ion-row>
-    <!-- <ion-row>
+    <ion-row>
       <ion-col>
         <p>No</p>
       </ion-col>
@@ -64,14 +64,19 @@
       <ion-col>
         <p>{{tem}}</p>
       </ion-col>
-    </ion-row> -->
-  </ion-grid>
+    </ion-row>
+  </ion-grid> -->
 
-  <!-- <ion-item *ngFor="let item of items">
-    {{item}}
-  </ion-item> -->
-  <!-- <ion-item *ngFor="let item of items | async">
-    <p>{{item.Customer_ID}}</p>
-  </ion-item> -->
+  <ion-list>
+    <div *ngFor="let r of customerArray">
+      <p>{{r.customerID}}</p>
+      <p>{{r.customerName}}</p>
+      <p>{{r.cutomerContact}}</p>
+      <p>{{r.cutomerWalkInDate}}</p>
+      <p>{{r.cutomerWalkInTime}}</p>
+      <p>{{r.customerTemp}}</p>
+      <br>
+    </div>
+  </ion-list>
 
 </ion-content>

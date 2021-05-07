@@ -1,40 +1,37 @@
 .contentLink{
-  text-align: center;
-}
+    text-align: center;
+  }
+  
+  .item{
+    border: 1px solid gray;
+    height: 220px;
+    width: 380px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  
+  ion-content img{
+    margin-top: 10px;
+    height: 200px;
+    width: auto;
+  }
+  
+  p{
+    color: black;
+    margin-top: 10px;
+    font-size: 15px;
+  }
 
-.item{
-border: 1px solid gray;
-height: 220px;
-width: 380px;
-margin-left: auto;
-margin-right: auto;
-margin-top: 10px;
-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
+  .company{
+    height: 90px;
+    width: auto;
+    margin-left: 450px;
+    margin-right: auto;
+  }
+  
 
-img{
-margin-top: 10px;
-height: 200px;
-width: auto;
-}
 
-p{
-color: black;
-margin-top: 10px;
-font-size: 15px;
-}
 
-.company{
-height: 90px;
-width: auto;
-// margin-left: 450px;
-// margin-right: auto;
-}
-
-.headerTitle{
-display: flex;
-align-items: center;
-margin: 0 auto;
-text-align: center;
-justify-content: center;
-}
+  
