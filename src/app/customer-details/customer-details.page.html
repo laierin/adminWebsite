@@ -3,7 +3,6 @@
     <ion-buttons slot="start">
       <ion-menu-button color="medium"></ion-menu-button>
       <ion-back-button defaultHref="/"></ion-back-button>
-      <!-- <ion-title>Customer Record</ion-title> -->
       <ion-title>
         <img src="../../assets/hnmLogo.png" class="company" alt="Company Logo"/>
       </ion-title>
@@ -18,10 +17,8 @@
     <button class="pickerButton" ion-button icon-right>
       <ion-datetime class="picker" 
         #picker pickerFormat="DD MMMM YYYY" 
-        displayFormat="DD MMMM YYYY"  
-        [min]="datePickerMin" 
-        [(ngModel)]="datePicker" 
-        (ionChange)="changeDate()">
+        displayFormat="DD MMMM YYYY"
+        [(ngModel)]="dateSelected">
       </ion-datetime>
       <ion-icon name="calendar-outline" class="calendar"></ion-icon>
     </button>
@@ -30,11 +27,8 @@
 
   <ion-button shape="round" color="medium" class="saveCopy" (click)="getData()">Save a Copy</ion-button>
 
-  <!-- <ion-grid>
+  <ion-grid>
     <ion-row>
-      <ion-col>
-        <p>No</p>
-      </ion-col>
       <ion-col>
         <p>Time</p>
       </ion-col>
@@ -47,48 +41,58 @@
       <ion-col>
         <p>°C</p>
       </ion-col>
-    </ion-row>
-    <ion-row>
       <ion-col>
-        <p>No</p>
-      </ion-col>
-      <ion-col>
-        <p>{{time}}</p>
-      </ion-col>
-      <ion-col>
-        <p>{{name}}</p>
-      </ion-col>
-      <ion-col>
-        <p>{{phonNum}}</p>
-      </ion-col>
-      <ion-col>
-        <p>{{tem}}</p>
+        <p>test</p>
       </ion-col>
     </ion-row>
-  </ion-grid> -->
 
-  <ion-list>
     <div *ngFor="let r of customerArray">
-      <p>{{r.customerID}}</p>
-      <p>{{r.customerName}}</p>
-      <p>{{r.cutomerContact}}</p>
-      <p>{{r.cutomerWalkInDate}}</p>
-      <p>{{r.cutomerWalkInTime}}</p>
-      <p>{{r.customerTemp}}</p>
-      <br>
+      <ion-row>
+        <ion-col>
+          <p>{{r.cutomerWalkInTime}}</p>
+        </ion-col>
+        <ion-col>
+          <p>{{r.customerName}}</p>
+        </ion-col>
+        <ion-col>
+          <p>{{r.cutomerContact}}</p>
+        </ion-col>
+        <ion-col>
+          <p>{{r.customerTemp}}</p>
+        </ion-col>
+        <ion-col>
+          <p>{{r.cutomerWalkInDate}}</p>
+        </ion-col>
+      </ion-row>
     </div>
-  </ion-list>
 
-  <ion-list>
     <div *ngFor="let d of dependentArray">
-      <p>{{d.dependentName}}</p>
-      <p>{{d.dependentPhoneNum}}</p>
-      <p>{{d.dependentwalkInDate}}</p>
-      <p>{{d.dependentwalkInTime}}</p>
-      <p>{{d.dependentTemp}}</p>
-      <!-- <p>{{r.customerTemp}}</p> -->
-      <br>
+      <ion-row>
+        <ion-col>
+          <p>{{d.dependentwalkInTime}}</p>
+        </ion-col>
+        <ion-col>
+          <p>{{d.dependentName}}</p>
+        </ion-col>
+        <ion-col>
+          <p>{{d.dependentPhoneNum}}</p>
+        </ion-col>
+        <ion-col>
+          <p>{{d.dependentTemp}}</p>
+        </ion-col>
+        <ion-col>
+          <p>{{d.dependentwalkInDate}}</p>
+        </ion-col>
+      </ion-row>
     </div>
-  </ion-list>
+
+  </ion-grid>
+
+  <!-- <ngx-datatable [rows]="title">
+    <ngx-datatable-column name="name">
+
+    </ngx-datatable-column>
+  </ngx-datatable> -->
+
 
 </ion-content>

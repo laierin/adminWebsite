@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
 
 import { AngularFirestore } from '@angular/fire/firestore';
 import { GlobalVariable } from '../global-variables';
-
-
+import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-customer-details',
@@ -15,44 +14,41 @@ export class CustomerDetailsPage implements OnInit {
 
   public customerArray = [];
   public dependentArray = [];
+  public datePicker;
+  public dateSelected;
 
   constructor(
   public navCtrl: NavController,
   public afs: AngularFirestore,
-  public globalVar: GlobalVariable
-
+  public globalVar: GlobalVariable,
+  public router: Router,
+  public route: ActivatedRoute,
+  public alertController: AlertController,
   ) {
+
     this.globalVar = globalVar; 
+    this.route.queryParams.subscribe(params =>{
+      if(this.router.getCurrentNavigation().extras.state){
+        this.dateSelected = this.router.getCurrentNavigation().extras.state.selectedDate;
+        console.log(this.dateSelected)
+      }
+    });
   }
 
   ngOnInit() {
-    //this.getCustomerData();
+    
+    this.getCustomerData();
+    this.getDependentData();
     
   }
   
-  getDate(){
-    this.afs.collection('CustomerRecord', ref => ref.where('Shop_ID', '==', this.globalVar.current_shopID))
-    .get()
-    .subscribe(resp => {
-      resp.forEach(resp2 =>{
-        // if datepicker == 'Customer_WalkInDate'
-        // this.afs.collection('Customer', ref => ref.where('Customer_ID', '==', resp2.get('Customer_ID')))
-        // .get()
-        // .subscribe(resp3 => {
-        //   resp3.forEach(resp4 => {
-        //     // this.customerArray.push({
-        //     //   customerID: resp4.get('Customer_ID'),
-        //     //   customerName: resp4.get('Customer_Name'),
-        //     //   cutomerContact: resp4.get('Customer_Contact'),
-        //     //   cutomerWalkInDate: resp2.get('Customer_WalkInDate'),
-        //     //   cutomerWalkInTime: resp2.get('Customer_WalkInTime'),
-        //     //   customerTemp: resp2.get('Customer_Temperature')
-        //     // });
-        //   });
-        // }); 
-
-      });
-    });
+  getCustomerDetails(){
+    this.customerArray = [];
+    this.dependentArray = [];
+    this.dateSelected = new Date(this.dateSelected).toDateString();
+    console.log(this.dateSelected);
+    this.getCustomerData();
+    this.getDependentData();
   }
 
   getCustomerData(){
@@ -62,14 +58,16 @@ export class CustomerDetailsPage implements OnInit {
         this.afs.collection('Customer', ref => ref.where('Customer_ID', '==', resp2.get('Customer_ID')))
         .get().subscribe(resp3 => {
           resp3.forEach(resp4 => {
-            this.customerArray.push({
-              customerID: resp4.get('Customer_ID'),
-              customerName: resp4.get('Customer_Name'),
-              cutomerContact: resp4.get('Customer_Contact'),
-              cutomerWalkInDate: resp2.get('Customer_WalkInDate'),
-              cutomerWalkInTime: resp2.get('Customer_WalkInTime'),
-              customerTemp: resp2.get('Customer_Temperature')
-            });
+            if(this.dateSelected == resp2.get('Customer_WalkInDate')){
+              this.customerArray.push({
+                customerID: resp4.get('Customer_ID'), //Customer
+                customerName: resp4.get('Customer_Name'), //Customer
+                cutomerContact: resp4.get('Customer_Contact'),//Customer
+                cutomerWalkInDate: resp2.get('Customer_WalkInDate'), //CustomerRecord
+                cutomerWalkInTime: resp2.get('Customer_WalkInTime'), //CustomerRecord
+                customerTemp: resp2.get('Customer_Temperature') //Customer
+              });
+            }
           });
         }); 
       });
@@ -89,13 +87,15 @@ export class CustomerDetailsPage implements OnInit {
                 this.afs.collection('Customer', ref => ref.where('Customer_ID', '==', resp6.get('Customer_ID')))
                 .get().subscribe(resp7 => {
                   resp7.forEach(resp8 => {
-                    this.dependentArray.push({
-                      dependentName: resp4.get('Dependent_Name'), //Dependent 
-                      dependentPhoneNum: resp8.get('Customer_Contact'), //Customer 
-                      dependentwalkInDate: resp2.get('Date'), //DependentRecord 
-                      dependentwalkInTime: resp6.get('Customer_WalkInTime'), //CustomerRecord
-                      dependentTemp: resp2.get('Dependent_Temperature') //DependentRecord 
-                    });
+                    if(this.dateSelected == resp2.get('Date')){
+                      this.dependentArray.push({
+                        dependentName: resp4.get('Dependent_Name'), //Dependent 
+                        dependentPhoneNum: resp8.get('Customer_Contact'), //Customer 
+                        dependentwalkInDate: resp2.get('Date'), //DependentRecord 
+                        dependentwalkInTime: resp6.get('Customer_WalkInTime'), //CustomerRecord
+                        dependentTemp: resp2.get('Dependent_Temperature') //DependentRecord 
+                      });
+                    }
                   });
                 }); 
               });
@@ -104,14 +104,6 @@ export class CustomerDetailsPage implements OnInit {
         }); 
       });
     });
-  }
-
-  
-  
-  getCustomerDetails(){
-    this.getCustomerData();
-    this.getDependentData();
-    console.log("clickkkk")
   }
 
   getData(){

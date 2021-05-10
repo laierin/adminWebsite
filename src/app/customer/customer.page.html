@@ -14,17 +14,17 @@
   <div class="content">
       <p class="label">Date:</p>
       <button class="pickerButton" ion-button icon-right>
-        <ion-datetime class="picker"
+        <ion-datetime 
+          class="picker"
           #picker pickerFormat="DD MMMM YYYY" 
-          displayFormat="DD MMM YYYY"  
-          [min]="datePickerMin" 
-          [(ngModel)]="datePicker" 
-          >
+          displayFormat="DD MMM YYYY"
+          [(ngModel)]="datePicker">
         </ion-datetime>
+        <!-- <ion-datetime (ngModelChange)="change(datePicker)" displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime> -->
         <ion-icon name="calendar-outline" class="calendar"></ion-icon>
       </button>
-      <ion-button (click)="changeDate(datePicker)" shape="round" color="medium" class="getDetail">Get Detail</ion-button>
+      <ion-button (click)="getDate()" shape="round" color="medium" class="getDetail">Get Detail</ion-button>
   </div>
 
-  <p>{{datePicker}}</p>
+  <p>{{choosenDate}}</p>
 </ion-content>

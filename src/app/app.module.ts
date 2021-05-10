@@ -15,10 +15,13 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../environments/environment'
 import { from } from 'rxjs';
 import { GlobalVariable } from './global-variables';
+import 'firebase/firestore';
 
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+  ],
   entryComponents: [],
   imports: [
     BrowserModule,
@@ -30,7 +33,8 @@ import { GlobalVariable } from './global-variables';
     AngularFireStorageModule,
     AngularFirestoreModule
   ],
-  providers: [{ 
+  providers: [
+    { 
     provide: RouteReuseStrategy, 
     useClass: IonicRouteStrategy 
   },
