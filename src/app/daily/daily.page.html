@@ -19,13 +19,13 @@
       <button class="pickerButton" ion-button icon-right>
         <ion-datetime class="picker"
           #picker pickerFormat="DD MMMM YYYY" 
-          displayFormat="DD MMMM YYYY"  
-          [min]="datePickerMin" 
-          [(ngModel)]="datePicker" 
-          (ionChange)="changeDate()">
+          displayFormat="DD MMMM YYYY" 
+          [(ngModel)]="datePicker">
         </ion-datetime>
         <ion-icon name="calendar-outline" class="calendar"></ion-icon>
       </button>
-      <ion-button routerLink="/home/statistic/daily/daily-details" routerDirection="forward" shape="round" color="medium" class="getDetail">Get Detail</ion-button>
+      <ion-button (click)="checkDate()" shape="round" color="medium" class="getDetail">Get Detail</ion-button>
   </div>
+
+  <!-- <p>{{dateSelected}}</p> -->
 </ion-content>

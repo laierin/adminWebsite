@@ -4,7 +4,7 @@
       <ion-menu-button color="medium"></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      <img src="../../assets/hnmLogo.png" class="company" alt="Company Logo"/>
+      <img [src]="logoImg" alt="Company Logo" class="company" />
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -20,7 +20,6 @@
           displayFormat="DD MMM YYYY"
           [(ngModel)]="datePicker">
         </ion-datetime>
-        <!-- <ion-datetime (ngModelChange)="change(datePicker)" displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime> -->
         <ion-icon name="calendar-outline" class="calendar"></ion-icon>
       </button>
       <ion-button (click)="getDate()" shape="round" color="medium" class="getDetail">Get Detail</ion-button>

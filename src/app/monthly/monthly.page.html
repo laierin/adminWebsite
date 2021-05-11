@@ -5,7 +5,7 @@
       <ion-menu-button color="medium"></ion-menu-button>
       <ion-back-button defaultHref="/"></ion-back-button>
       <ion-title>
-        <img src="../../assets/hnmLogo.png" class="company" alt="Company Logo"/>
+        <img [src]="logoImg" alt="Company Logo" class="company" />
       </ion-title>
     </ion-buttons>
   </ion-toolbar>
@@ -17,14 +17,12 @@
       <p class="label">Date:</p>
       <button class="pickerButton" ion-button icon-right>
         <ion-datetime class="picker"
-          #picker pickerFormat="DD MMMM YYYY" 
-          displayFormat="DD MMMM YYYY"  
-          [min]="datePickerMin" 
-          [(ngModel)]="datePicker" 
-          (ionChange)="changeDate()">
+        #picker pickerFormat="MMM YYYY" 
+        displayFormat="MMM YYYY"
+          [(ngModel)]="datePicker">
         </ion-datetime>
         <ion-icon name="calendar-outline" class="calendar"></ion-icon>
       </button>
-      <ion-button routerLink="/home/statistic/monthly/monthly-details" routerDirection="forward" shape="round" color="medium" class="getDetail">Get Detail</ion-button>
+      <ion-button (click)="getDate()" shape="round" color="medium" class="getDetail">Get Detail</ion-button>
   </div>
 </ion-content>

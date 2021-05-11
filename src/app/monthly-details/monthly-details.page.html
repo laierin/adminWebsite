@@ -5,27 +5,25 @@
       <ion-menu-button color="medium"></ion-menu-button>
       <ion-back-button defaultHref="/"></ion-back-button>
       <ion-title>
-        <img src="../../assets/hnmLogo.png" class="company" alt="Company Logo"/>
+        <img [src]="logoImg" alt="Company Logo" class="company" />
       </ion-title>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-label class="title"><strong>Monthly Record</strong></ion-label>
+  <p class="title"><strong>Monthly Record</strong></p>
   <div class="content">
       <p class="label">Date:</p>
       <button class="pickerButton" ion-button icon-right>
         <ion-datetime class="picker"
-          #picker pickerFormat="DD MMMM YYYY" 
-          displayFormat="DD MMMM YYYY"  
-          [min]="datePickerMin" 
-          [(ngModel)]="datePicker" 
-          (ionChange)="changeDate()">
+          #picker pickerFormat="MMMM YYYY" 
+          displayFormat="MMMM YYYY"
+          [(ngModel)]="dateSelected">
         </ion-datetime>
         <ion-icon name="calendar-outline" class="calendar"></ion-icon>
       </button>
-      <ion-button routerLink="/home/statistic/monthly/monthly-details" routerDirection="forward" shape="round" color="medium" class="getDetail">Get Detail</ion-button>
+      <ion-button (click)="getDetails()" shape="round" color="medium" class="getDetail">Get Detail</ion-button>
   </div>
 
   
@@ -33,6 +31,15 @@
   <!-- <img/> -->
 
   <ion-button shape="round" color="medium" class="saveCopy">Save a Copy</ion-button>
+
+  <div *ngFor="let r of testtt">
+    <ion-row>
+      <ion-col>
+        <p>{{r.aaaaa}}</p>
+      </ion-col>
+    </ion-row>
+  </div>
+  
   <ion-grid class="Graphcontent">
     <ion-row>
       <ion-col>
