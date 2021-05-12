@@ -1,32 +1,17 @@
-.contentLink{
-    text-align: center;
-  }
-  
-  .item{
-    border: 1px solid gray;
-    height: 220px;
-    width: 380px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  }
-  
-  ion-content img{
-    margin-top: 10px;
-    height: 200px;
-    width: auto;
-  }
-  
-  p{
-    color: black;
-    margin-top: 10px;
-    font-size: 15px;
-  }
+p{
+  color: white;
+  font-size: 20px;
+  margin: 50px;
+}
 
-  .company{
-    height: 50px;
-    width: auto;
-    display: flex;
-  }
+.company{
+  height: 50px;
+  width: auto;
+  display: flex;
+}
+
+ion-card{
+  background-color: #6B0707;
+  // background-image: linear-gradient( to left, rgb(184, 14, 14), rgba(107,7,7,1));
+}
   

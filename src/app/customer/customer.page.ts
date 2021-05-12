@@ -43,7 +43,7 @@ export class CustomerPage implements OnInit {
       console.log("watson");
     }
     else{
-      console.log("error")
+      console.log("Logo error")
     }
   }
 

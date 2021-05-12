@@ -5,26 +5,30 @@
       <ion-menu-button color="medium"></ion-menu-button>
       <ion-back-button defaultHref="/"></ion-back-button>
       <ion-title>
-        <img src="../../assets/hnmLogo.png" class="company" alt="Company Logo"/>
+        <img [src]="logoImg" alt="Company Logo" class="company" />
       </ion-title>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-label class="title"><strong>Weekly Record</strong></ion-label>
+  <p class="title"><strong>Weekly Record</strong></p>
   <div class="content">
       <p class="label">Date:</p>
+
+      
+
       <button class="pickerButton" ion-button icon-right>
-        <ion-datetime class="picker"
-          #picker pickerFormat="DD MMMM YYYY" 
-          displayFormat="DD MMMM YYYY"  
-          [min]="datePickerMin" 
-          [(ngModel)]="datePicker" 
-          (ionChange)="changeDate()">
-        </ion-datetime>
+        
+        <ion-calendar [(ngModel)]="dateRange"
+            [options]="optionsRange"
+            [type]="type"
+            [format]="'YYYY-MM-DD'">
+      </ion-calendar>
+
         <ion-icon name="calendar-outline" class="calendar"></ion-icon>
       </button>
+      
       <ion-button routerLink="/home/statistic/weekly/weekly-details" routerDirection="forward" shape="round" color="medium" class="getDetail">Get Detail</ion-button>
   </div>
 </ion-content>

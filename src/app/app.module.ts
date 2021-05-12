@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
@@ -16,6 +16,8 @@ import { environment } from '../environments/environment'
 import { from } from 'rxjs';
 import { GlobalVariable } from './global-variables';
 import 'firebase/firestore';
+import { CalendarModule } from 'ion2-calendar';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -31,7 +33,10 @@ import 'firebase/firestore';
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     AngularFireStorageModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    CalendarModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     { 
@@ -42,5 +47,9 @@ import 'firebase/firestore';
 ],
 
   bootstrap: [AppComponent],
+  
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+  ],
 })
 export class AppModule {}

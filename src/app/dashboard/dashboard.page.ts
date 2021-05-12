@@ -37,8 +37,8 @@ export class DashboardPage implements OnInit {
       console.log("watson");
     }
     else{
-      console.log("error")
+      console.log("Logo error")
     }
-
   }
+  
 }

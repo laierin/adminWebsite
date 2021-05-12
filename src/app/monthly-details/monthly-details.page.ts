@@ -87,18 +87,6 @@ export class MonthlyDetailsPage implements OnInit {
       });
       
     });
-
-    // this.afs.collection('CustomerRecord', ref => ref.where('Shop_ID', '==', visitingShop)).get().subscribe(resp2 => {
-    //   resp2.forEach(element2 => {
-    //     if ((element2.get('Customer_WalkInDate') == this.checkDate) && (element2.get('Customer_Temperature') != null)) {
-    //       if (element2.data.length != 0) {
-    //         this.totalPeople = element2.data.length;
-    //         this.addTotalNumberInShop(visitingShop, this.totalPeople);
-    //       }
-    //     }
-    //   })
-    // })
-
   }
 
   getTotolDependent(){

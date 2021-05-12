@@ -8,12 +8,16 @@ import { WeeklyPageRoutingModule } from './weekly-routing.module';
 
 import { WeeklyPage } from './weekly.page';
 
+import { CalendarModule } from 'ion2-calendar';
+
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    WeeklyPageRoutingModule
+    WeeklyPageRoutingModule,
+    CalendarModule
   ],
   declarations: [WeeklyPage]
 })
