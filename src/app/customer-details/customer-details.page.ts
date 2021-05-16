@@ -33,10 +33,14 @@ export class CustomerDetailsPage implements OnInit {
 
   public pdfObj = null;
   public customerName;
-  public cusName: string=""
-  public cusHP: string=""
-  public cusTemp: string=""
-  public cusTime: string=""
+  public cusName: string="";
+  public cusHP: string="";
+  public cusTemp: string="";
+  public cusTime: string="";
+  public depName: string="";
+  public depHP: string="";
+  public depTemp: string="";
+  public depTime: string="";
 
   constructor(
     public navCtrl: NavController,
@@ -148,7 +152,9 @@ export class CustomerDetailsPage implements OnInit {
   }
 
   createPDF() {
+
 	var body:string[][] = [];
+
 	body = [['Name','Phone Number','Temperature','Walk In Time']];
     for(var x=0; x<this.customerArray.length; x++) { 
 		  this.cusName=this.customerArray[x].customerName;
@@ -157,9 +163,20 @@ export class CustomerDetailsPage implements OnInit {
 		  this.cusTime=this.customerArray[x].cutomerWalkInTime;
 		  body.push([this.cusName,this.cusHP,this.cusTemp, this.cusTime]);
 	 }
+   for(var x=0; x<this.dependentArray.length; x++) { 
+    this.depName=this.dependentArray[x].dependentName;
+    this.depHP=this.dependentArray[x].dependentPhoneNum;
+    this.depTemp=this.dependentArray[x].dependentTemp;
+    this.depTime=this.dependentArray[x].dependentwalkInTime;
+    body.push([this.depName,this.depHP,this.depTemp, this.depTime]);
+ }
 
     var docDefinition = {
       content: [
+
+        {text: 'Record Date:', style: 'subheader' },
+        {text: new Date(this.dateSelected).toDateString()},
+
         // { text: 'REMINDER', style: 'header' },
         // { text: new Date().toTimeString(), alignment: 'right' },
  

@@ -22,11 +22,14 @@ export class DailyDetailsPage implements OnInit {
   public sixthThreeHours = [];
   public seventhThreeHours = [];
   public eighthThreeHours = [];
+
   public timeArray = [];
+
   public highestValue = 0;
   public lowestValue = 0;
   public average = 0;
   public total = 0;
+  
   public counter;
   public datePicker;
   public dateSelected;

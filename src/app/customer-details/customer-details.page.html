@@ -38,10 +38,17 @@
     <ion-label stacked>Text</ion-label>
     <ion-textarea [(ngModel)]="letterObj.text" rows="10"></ion-textarea>
   </ion-item> -->
-  
-  <h3> Reminder </h3> <br> 
-  <p> 1.To create a PDF, you must first select your date, and press "Create PDF".</p>
-  <p> 2. Click on "Save a Copy" button to save.</p>
+
+  <br>
+
+  <div class="reminder">
+    <ion-text color="danger">
+      <h4> <strong>Reminder</strong> </h4>
+      <p> 1.To create a PDF, you must first select your date, and press "Create PDF".</p>
+      <p> 2. Click on "Save a Copy" button to save.</p> 
+    </ion-text>
+  </div>
+  <br>
   <div class="pdf" item-end>
     <ion-button shape="round" color="medium" class="createPDF" (click)="createPDF()">Create PDF</ion-button>
     <ion-button shape="round" color="medium" class="saveCopy" (click)="getData()">Save a Copy</ion-button>
@@ -105,14 +112,5 @@
         </ion-col>
       </ion-row>
     </div>
-
   </ion-grid>
-
-  <!-- <ngx-datatable [rows]="title">
-    <ngx-datatable-column name="name">
-
-    </ngx-datatable-column>
-  </ngx-datatable> -->
-
-
 </ion-content>

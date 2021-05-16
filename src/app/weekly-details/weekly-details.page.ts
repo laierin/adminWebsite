@@ -34,6 +34,12 @@ export class WeeklyDetailsPage implements OnInit {
   public six = 0;
   public last = 0;
 
+  public total = 0;
+  public average = 0;
+  public highest = 0;
+  public lowest = 0;
+
+
 
   constructor(
     public navCtrl: NavController,
@@ -63,6 +69,8 @@ export class WeeklyDetailsPage implements OnInit {
     this.changeLogo();
     this.getWeektoString();
     this.getTotalCustomerData();
+    this.getTotalDependentData();
+
   }
 
   changeLogo(){
@@ -92,8 +100,10 @@ export class WeeklyDetailsPage implements OnInit {
     this.five = 0;
     this.six = 0;
     this.last = 0;
+    this.total = 0;
     this.getWeektoString();
     this.getTotalCustomerData();
+    this.getTotalDependentData();
   };
 
   getWeektoString(){
@@ -126,34 +136,86 @@ export class WeeklyDetailsPage implements OnInit {
         if(this.firstDate == resp2.get('Customer_WalkInDate'))
         {
           this.first ++;
-          console.log("1" + this.first)
+          console.log("1" + " " + this.first)
         }else if(this.secondDate == resp2.get('Customer_WalkInDate'))
         {
           this.second ++;
-          console.log("2" + this.second)
+          console.log("2" + " " + this.second)
         }else if(this.thirdDate == resp2.get('Customer_WalkInDate'))
         {
           this.third ++;
-          console.log("3" + this.third)
+          console.log("3" + " " + this.third)
         }else if(this.fouthDate == resp2.get('Customer_WalkInDate'))
         {
           this.fouth ++;
-          console.log("4" + this.fouth)
+          console.log("4" + " " + this.fouth)
         }else if(this.fiveDate == resp2.get('Customer_WalkInDate'))
         {
           this.five ++;
-          console.log("5" + this.five)
+          console.log("5" + " " + this.five)
         }else if(this.sixDate == resp2.get('Customer_WalkInDate'))
         {
           this.six ++;
-          console.log("6" + this.six)
+          console.log("6" + " " + this.six)
         }else if(this.lastDate == resp2.get('Customer_WalkInDate'))
         {
           this.last ++;
-          console.log("7" + this.last)
+          console.log("7" + " " + this.last)
         }
       });
     });
+  }
+
+  getTotalDependentData(){
+    this.afs.collection('DependentRecord', ref => ref.where('Shop_ID', '==', this.globalVar.current_shopID))
+    .get().subscribe(resp => {
+      resp.forEach(resp2 => {
+
+        if(this.firstDate == resp2.get('Date'))
+        {
+          this.first ++;
+          console.log("1" + " " + this.first + "dep")
+        }else if(this.secondDate == resp2.get('Date'))
+        {
+          this.second ++;
+          console.log("2" + " " + this.second + "dep")
+        }else if(this.thirdDate == resp2.get('Date'))
+        {
+          this.third ++;
+          console.log("3" + " " + this.third + "dep")
+        }else if(this.fouthDate == resp2.get('Date'))
+        {
+          this.fouth ++;
+          console.log("4" + " " + this.fouth + "dep")
+        }else if(this.fiveDate == resp2.get('Date'))
+        {
+          this.five ++;
+          console.log("5" + " " + this.five + "dep")
+        }else if(this.sixDate == resp2.get('Date'))
+        {
+          this.six ++;
+          console.log("6" + " " + this.six + "dep")
+        }else if(this.lastDate == resp2.get('Date'))
+        {
+          this.last ++;
+          console.log("7" + " " + this.last + "dep")
+        }
+      });
+    });
+  }
+
+  
+  getTotal(){
+    // this.total;
+  }
+  getAverage(){
+    // this.average;
+  }
+  getHighest(){
+    // this.highest;
+  }
+  getLowest(){
+    // this.lowest;
   }
 
 }

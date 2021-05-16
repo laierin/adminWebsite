@@ -1,3 +1,13 @@
+.company{
+    height: 50px;
+    width: auto;
+    display: flex;
+}
+
+.title{
+    text-align: center;
+}
+
 .content{
     display: flex;
     align-items: center;
@@ -28,35 +38,21 @@ ion-icon{
     --padding-top: 12%;
 }
 
-
 ion-row, ion-col{
     border: 1px solid black;
     text-align: center;
 }
 
-//
-.recordTable{
-    text-align: center;
-    margin-left: 35%;
-    margin-right: 20%;
-}
-
 .pdf{
     display: flex;
     justify-content: flex-end;
+    margin: 0 20px;
 }
 
-// .saveCopy, .createPDF{
-//     margin-left: 80%;
-//     margin-top: 2%;
-// }
+.reminder{
+    margin: 0 50px;
+}
 
-.company{
-    height: 50px;
-    width: auto;
-    display: flex;
-  }
-
-.title{
-    text-align: center;
+ion-grid{
+    margin: 0 20px;
 }

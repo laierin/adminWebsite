@@ -11,103 +11,25 @@
 </ion-header>
 
 <ion-content>
+
+  <p class="title"><strong>Statistic</strong></p>
+  <div class="cardItem">
+    <ion-card routerLink= "/home/statistic/daily" class="ion-activated">
+      <ion-card-content>
+        <p>Daily Report</p>
+      </ion-card-content>
+    </ion-card>
   
-  <ion-grid>
-    <ion-row class="abc">
-      <ion-col>
-        <p class="title"><strong>Statistic</strong></p>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <!-- daily -->
-      <ion-col class="contentTitle">
-        <ion-row >
-          <ion-col>Daily Report</ion-col>
-        </ion-row>
-        
-        <ion-row >
-          <ion-col>
-            <ion-button class="imgLink" fill="clear" routerLink="/home/statistic/daily/daily-details" routerDirection="forward">
-              <img src="../../assets/DailyReportPic.PNG" alt="Daily Report"/>
-            </ion-button>
-          </ion-col>
-        </ion-row>
-
-        <ion-row>
-          <ion-col>
-            <ion-button class="imgLink" fill="clear" routerLink="/home/statistic/daily/daily-details" routerDirection="forward">
-              <img src="../../assets/DailyReportPic2.PNG" alt="Daily Report"/>
-            </ion-button>
-          </ion-col>
-        </ion-row>
-
-        <ion-row>
-          <ion-col>
-            <ion-button routerLink="/home/statistic/daily" routerDirection="forward" shape="round" color="medium" class="chooseDate">CHOOSE OTHER DATE</ion-button>
-          </ion-col>
-        </ion-row>
-
-      </ion-col>
-    
-      <!-- weekly -->
-      <ion-col class="contentTitle">
-        <ion-row>
-          <ion-col>Weekly Report</ion-col>
-        </ion-row>
-
-        <ion-row>
-          <ion-col>
-            <ion-button class="imgLink" fill="clear" routerLink="/home/statistic/weekly/weekly-details" routerDirection="forward">
-              <img src="../../assets/WeeklyReportPic.PNG" alt="Weekly Report"/>
-            </ion-button>
-          </ion-col>
-        </ion-row>
-
-        <ion-row>
-          <ion-col>
-            <ion-button class="imgLink" fill="clear" routerLink="/home/statistic/weekly/weekly-details" routerDirection="forward">
-              <img src="../../assets/WeeklyReportPic2.PNG" alt="Weekyl Report"/>
-            </ion-button>
-          </ion-col>
-        </ion-row>
-        
-        <ion-row>
-          <ion-col>
-            <ion-button routerLink="/home/statistic/weekly" routerDirection="forward" shape="round" color="medium" class="chooseDate">CHOOSE OTHER DATE</ion-button>
-          </ion-col>
-        </ion-row>
-
-      </ion-col>
-    
-      <!-- monthly -->
-      <ion-col class="contentTitle">
-        <ion-row>
-          <ion-col>Monthly Report</ion-col>
-        </ion-row>
-
-        <ion-row>
-          <ion-col>
-            <ion-button class="imgLink" fill="clear" routerLink="/home/statistic/monthly/monthly-details" routerDirection="forward">
-              <img src="../../assets/MonthlyReportPic.PNG" alt="Monthly Report"/>
-            </ion-button>
-          </ion-col>
-        </ion-row>
-
-        <ion-row>
-          <ion-col>
-            <ion-button class="imgLink" fill="clear" routerLink="/home/statistic/monthly/monthly-details" routerDirection="forward">
-              <img src="../../assets/MonthlyReportPic2.PNG" alt="Monthly Report"/>
-            </ion-button>
-          </ion-col>
-        </ion-row>
-        
-        <ion-row>
-          <ion-col>
-            <ion-button routerLink="/home/statistic/monthly" routerDirection="forward" shape="round" color="medium" class="chooseDate">CHOOSE OTHER DATE</ion-button>
-          </ion-col>
-        </ion-row>
-
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+    <ion-card routerLink= "/home/statistic/weekly" class="ion-activated">
+      <ion-card-content>
+        <p>Weekly Report</p>
+      </ion-card-content>
+    </ion-card>
+  
+    <ion-card routerLink= "/home/statistic/monthly" class="ion-activated">
+      <ion-card-content>
+        <p>Monthly Report</p>
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>
