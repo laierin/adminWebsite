@@ -16,12 +16,24 @@
   <div class="content">
       <p class="label">Date:</p>
 
-      <button ion-button (click)="openCalendar()" class="pickerButton" ion-button icon-right>
+      <button class="pickerButton" ion-button icon-right>
         
+        <ion-datetime 
+          class="picker"
+          #picker pickerFormat="DD MMMM YYYY" 
+          displayFormat="DD MMM YYYY"
+          [(ngModel)]="datePicker">
+        </ion-datetime>
+
         <ion-icon name="calendar-outline" class="calendar"></ion-icon>
+        
       </button>
 
-      <ion-button shape="round" color="medium" class="getDetail">Get Detail</ion-button>
-
+      <ion-button (click)="checekDate()" shape="round" color="medium" class="getDetail">Get Detail</ion-button>
+      
   </div>
+
+  <!-- <p style="text-align:center;"> FROM: {{firstDate}} <br> TO: {{lastDate}} </p> -->
+  
+
 </ion-content>

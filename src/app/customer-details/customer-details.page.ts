@@ -4,6 +4,7 @@ import { AlertController, NavController, Platform } from '@ionic/angular';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { GlobalVariable } from '../global-variables';
 import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
+
 import { File } from '@ionic-native/file/ngx';
 import { FileOpener } from '@ionic-native/file-opener/ngx';
 import pdfMake from 'pdfmake/build/pdfmake';
@@ -24,6 +25,7 @@ export class CustomerDetailsPage implements OnInit {
   // }
   public customerArray = [];
   public dependentArray = [];
+
   public datePicker;
   public dateSelected;
 
@@ -37,15 +39,15 @@ export class CustomerDetailsPage implements OnInit {
   public cusTime: string=""
 
   constructor(
-  public navCtrl: NavController,
-  public afs: AngularFirestore,
-  public globalVar: GlobalVariable,
-  public router: Router,
-  public route: ActivatedRoute,
-  public alertController: AlertController,
-  private plt: Platform, 
-  private file: File, 
-  private fileOpener: FileOpener
+    public navCtrl: NavController,
+    public afs: AngularFirestore,
+    public globalVar: GlobalVariable,
+    public router: Router,
+    public route: ActivatedRoute,
+    public alertController: AlertController,
+    private plt: Platform, 
+    private file: File, 
+    private fileOpener: FileOpener
   ) {
 
     this.globalVar = globalVar; 

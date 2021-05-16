@@ -1,7 +1,5 @@
-.Graphcontent{
-    margin-left: 30%;
-    margin-right: 10%;
-    margin-top: 2%;
+.title{
+    text-align: center;
 }
 
 .content{
@@ -44,22 +42,14 @@ ion-icon{
     display: flex;
   }
 
-
-.title{
-    margin-left: 45%;
-}
-
 .recordGraph{
     text-align: center;
     margin-left: 35%;
     margin-right: 20%;
 }
 
-.saveCopy{
-    // height: 20px;
-    // width: auto;
-    margin-left: 60%;
-    margin-top: 5%;
+ion-col{
+    margin: 10px;
 }
 
 

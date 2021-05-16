@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, ModalController } from '@ionic/angular';
+import { NavController, ModalController, AlertController } from '@ionic/angular';
 
+import { NavigationExtras, Router } from '@angular/router';
 import { GlobalVariable } from '../global-variables';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { CalendarModal, CalendarModalOptions, DayConfig,CalendarResult, CalendarComponentOptions  } from 'ion2-calendar';
 
 @Component({
   selector: 'app-weekly',
@@ -12,20 +12,25 @@ import { CalendarModal, CalendarModalOptions, DayConfig,CalendarResult, Calendar
 })
 export class WeeklyPage implements OnInit {
 
+  public datePicker;
+
+  public firstDate;
+  // public secondDate;
+  // public thirdtDate;
+  // public fouthDate;
+  // public fiveDate;
+  // public sixDate;
+  // public lastDate;
+
   public logoImg: string;
 
-  dateRange: {
-    from: Date;
-    to: Date
-  } = {
-    from: new Date(),
-    to: new Date(Date.now() + 24 * 60 * 60 * 1000 * 7)
-  };
+  public chooseFirstDate;
 
   constructor(
     public navCtrl: NavController,
     public globalVar: GlobalVariable,
     public afs: AngularFirestore,
+    public alertController : AlertController,
     public modalCtrl: ModalController
     ) {
       this.globalVar = globalVar;
@@ -56,40 +61,60 @@ export class WeeklyPage implements OnInit {
     }
   }
 
-  async openCalendar() {
-    const options: CalendarModalOptions = {
-      pickMode: 'range',
-      title: 'RANGE',
-      defaultDateRange: this.dateRange,
-      canBackwardsSelected: true,
+  passDate(){
+    
+    this.chooseFirstDate = new Date(this.datePicker);
+      
+    // this.firstDate = new Date(this.chooseFirstDate).toDateString();
+    // this.secondDate = new Date(this.chooseFirstDate - - 24 * 60 * 60 * 1000).toDateString();
+    // this.thirdtDate = new Date(this.chooseFirstDate - - 2 * 24 * 60 * 60 * 1000).toDateString();
+    // this.fouthDate = new Date(this.chooseFirstDate - - 3 * 24 * 60 * 60 * 1000).toDateString();
+    // this.fiveDate = new Date(this.chooseFirstDate - - 4 * 24 * 60 * 60 * 1000).toDateString();
+    // this.sixDate = new Date(this.chooseFirstDate - - 5 * 24 * 60 * 60 * 1000).toDateString();
+    // this.lastDate = new Date(this.chooseFirstDate - - 6 * 24 * 60 * 60 * 1000).toDateString();
+
+    console.log(this.chooseFirstDate);
+    // console.log(this.secondDate);
+    // console.log(this.thirdtDate);
+    // console.log(this.fouthDate);
+    // console.log(this.fiveDate);
+    // console.log(this.sixDate);
+    // console.log(this.lastDate);
+    console.log("From First Weekly Page");
+
+    let navigationExtra: NavigationExtras ={
+      state:{
+        chooseDate: this.chooseFirstDate,
+        // date_2: this.secondDate,
+        // date_3: this.thirdtDate,
+        // date_4: this.fouthDate,
+        // date_5: this.fiveDate,
+        // date_6: this.sixDate,
+        // date_7: this.lastDate
+      }
     };
 
-    const myCalendar = await this.modalCtrl.create({
-      component: CalendarModal,
-      componentProps: { options },
-    });
-
-    myCalendar.present();
-
-    const event: any = await myCalendar.onDidDismiss();
-    const { data: date, role } = event;
-
-    if (role === 'done') {
-      this.dateRange = Object.assign(
-        {},
-        {
-          from: date.from.dateObj,
-          to: date.to.dateObj,
-        }
-      );
-    }
-    console.log(date);
-    console.log('role', role);
+    this.navCtrl.navigateForward('home/statistic/weekly/weekly-details', navigationExtra);
   }
 
+  checekDate(){
+    if(this.datePicker == null){
+      this.presentAlertPrompt();
+    }else{
+      this.passDate();
+    }
+  }
+
+  async presentAlertPrompt() { //Alert box when datePicker is null
+    const alert = await this.alertController.create({
+      header: 'Input Error',
+      subHeader: 'Please select a date.',
+      buttons: ['OK']
+    });
+    await alert.present();
+  };
+
   getWeeklyDetail(){
-    // this.navCtrl.navigateForward('weekly-details');
-    // this.openCalendar();
   }
 
 }
