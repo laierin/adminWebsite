@@ -1,9 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController, NavController } from '@ionic/angular';
+import { AlertController, NavController, Platform } from '@ionic/angular';
 
 import { AngularFirestore } from '@angular/fire/firestore';
 import { GlobalVariable } from '../global-variables';
 import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
+import { File } from '@ionic-native/file/ngx';
+import { FileOpener } from '@ionic-native/file-opener/ngx';
+import pdfMake from 'pdfmake/build/pdfmake';
+import pdfFonts from 'pdfmake/build/vfs_fonts';
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 @Component({
   selector: 'app-customer-details',
@@ -12,11 +17,24 @@ import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
 })
 export class CustomerDetailsPage implements OnInit {
 
+  // letterObj = {
+  //   to: '',
+  //   from: '',
+  //   text: ''
+  // }
   public customerArray = [];
   public dependentArray = [];
   public datePicker;
   public dateSelected;
+
   public logoImg: string;
+
+  public pdfObj = null;
+  public customerName;
+  public cusName: string=""
+  public cusHP: string=""
+  public cusTemp: string=""
+  public cusTime: string=""
 
   constructor(
   public navCtrl: NavController,
@@ -25,6 +43,9 @@ export class CustomerDetailsPage implements OnInit {
   public router: Router,
   public route: ActivatedRoute,
   public alertController: AlertController,
+  private plt: Platform, 
+  private file: File, 
+  private fileOpener: FileOpener
   ) {
 
     this.globalVar = globalVar; 
@@ -46,17 +67,17 @@ export class CustomerDetailsPage implements OnInit {
   changeLogo(){
     if(this.globalVar.current_shopID == "6YcKQ6C6hnJP5h2U4EVp"){
       this.logoImg = '../../assets/hnmLogo.png';
-      console.log("h&m");
+      // console.log("h&m");
     }
     else if (this.globalVar.current_shopID == "KqfmOPxf4e4OiM8gnKbj"){
       this.logoImg = '../../assets/sushikinglogo.png';
-      console.log("sushi king");
+      // console.log("sushi king");
     }else if (this.globalVar.current_shopID == "bU8jSc6I97kSp5vwp3yT"){
       this.logoImg = '../../assets/watsonslogo.png';
-      console.log("watson");
+      // console.log("watson");
     }
     else{
-      console.log("Logo error")
+      // console.log("Logo error")
     }
   }
 
@@ -124,8 +145,74 @@ export class CustomerDetailsPage implements OnInit {
     });
   }
 
+  createPDF() {
+	var body:string[][] = [];
+	body = [['Name','Phone Number','Temperature','Walk In Time']];
+    for(var x=0; x<this.customerArray.length; x++) { 
+		  this.cusName=this.customerArray[x].customerName;
+		  this.cusHP=this.customerArray[x].cutomerContact;
+		  this.cusTemp=this.customerArray[x].customerTemp;
+		  this.cusTime=this.customerArray[x].cutomerWalkInTime;
+		  body.push([this.cusName,this.cusHP,this.cusTemp, this.cusTime]);
+	 }
+
+    var docDefinition = {
+      content: [
+        // { text: 'REMINDER', style: 'header' },
+        // { text: new Date().toTimeString(), alignment: 'right' },
+ 
+        // { text: 'From', style: 'subheader' },
+        // { text: this.letterObj.from },
+ 
+        // { text: 'To', style: 'subheader' },
+        // this.letterObj.to,
+ 
+        // { text: this.letterObj.text, style: 'story', margin: [0, 20, 0, 20] },
+ 
+        {
+          table: {
+          body: body
+        }
+      }
+        
+      ],
+      styles: {
+        header: {
+          fontSize: 18,
+          bold: true,
+        },
+        subheader: {
+          fontSize: 14,
+          bold: true,
+          margin: [0, 15, 0, 0]
+        },
+        story: {
+          italic: true,
+          alignment: 'center',
+          width: '50%',
+        }
+      }
+    }
+    this.pdfObj = pdfMake.createPdf(docDefinition);
+  }
+
   getData(){
     console.log("pdf")
+    if (this.plt.is('cordova')) {
+      this.pdfObj.getBuffer((buffer) => {
+        var blob = new Blob([buffer], { type: 'application/pdf' });
+ 
+        // Save the PDF to the data Directory of our App
+        this.file.writeFile(this.file.dataDirectory, 'myletter.pdf', blob, { replace: true }).then(fileEntry => {
+          // Open the PDf with the correct OS tools
+          this.fileOpener.open(this.file.dataDirectory + 'myletter.pdf', 'application/pdf');
+        })
+      });
+    } else {
+      // On a browser simply use download!
+      this.pdfObj.download();
+    }
+    
   }
 
 }

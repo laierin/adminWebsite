@@ -4,7 +4,7 @@
       <!-- hamburger -->
       <ion-menu-button color="medium"></ion-menu-button>
       <ion-title>
-        <img [src]="logoImg" alt="Company Logo" class="company" />
+        <img src="../../assets/hnmLogo.png" class="company" alt="Company Logo"/>
       </ion-title>
     </ion-buttons>
   </ion-toolbar>
@@ -19,12 +19,12 @@
           #picker pickerFormat="DD MMMM YYYY" 
           displayFormat="DD MMMM YYYY"  
           [min]="datePickerMin" 
-          [(ngModel)]="datePicker" 
-          (ionChange)="changeDate()">
+          [(ngModel)]="dateSelected"
+          (ionChange)="changeDate(datePicker)">
         </ion-datetime>
         <ion-icon name="calendar-outline" class="calendar"></ion-icon>
       </button>
-      <ion-button routerLink="/home/statistic/daily/daily-details" routerDirection="forward" shape="round" color="medium" class="getDetail">Get Detail</ion-button>
+      <ion-button (click)="renewData()" shape="round" color="medium" class="getDetail">Get Detail</ion-button>
   </div>
 
   <strong class="recordGraph">*Graph of Daily Records*</strong>
@@ -33,19 +33,19 @@
   <ion-grid class="Graphcontent">
     <ion-row>
       <ion-col>
-        <strong>Highest:</strong>
+        <strong>Highest: {{highestValue}}</strong>
       </ion-col>
       <ion-col>
-        <strong>Lowest:</strong>
+        <strong>Lowest: {{lowestValue}}</strong>
       </ion-col>
     </ion-row>
 
     <ion-row>
       <ion-col>
-        <strong>Average:</strong>
+        <strong>Average: {{average}}</strong>
       </ion-col>
       <ion-col>
-        <strong>Total:</strong>
+        <strong>Total: {{total}}</strong>
       </ion-col>
     </ion-row>
   </ion-grid>

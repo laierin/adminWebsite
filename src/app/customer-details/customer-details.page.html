@@ -25,7 +25,27 @@
     <ion-button (click)="getCustomerDetails()" shape="round" color="medium" class="getDetail">Get Detail</ion-button>
   </div>
 
-  <ion-button shape="round" color="medium" class="saveCopy" (click)="getData()">Save a Copy</ion-button>
+  <!-- <ion-button shape="round" color="medium" class="saveCopy" (click)="getData()">Save a Copy</ion-button> -->
+  <!-- <ion-item>
+    <ion-label stacked>From</ion-label>
+    <ion-input [(ngModel)]="letterObj.from"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label stacked>To</ion-label>
+    <ion-input [(ngModel)]="letterObj.to"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label stacked>Text</ion-label>
+    <ion-textarea [(ngModel)]="letterObj.text" rows="10"></ion-textarea>
+  </ion-item> -->
+  
+  <h3> Reminder </h3> <br> 
+  <p> 1.To create a PDF, you must first select your date, and press "Create PDF".</p>
+  <p> 2. Click on "Save a Copy" button to save.</p>
+  <div class="pdf" item-end>
+    <ion-button shape="round" color="medium" class="createPDF" (click)="createPDF()">Create PDF</ion-button>
+    <ion-button shape="round" color="medium" class="saveCopy" (click)="getData()">Save a Copy</ion-button>
+  </div>
 
   <ion-grid>
     <ion-row>

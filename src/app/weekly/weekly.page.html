@@ -16,19 +16,12 @@
   <div class="content">
       <p class="label">Date:</p>
 
-      
-
-      <button class="pickerButton" ion-button icon-right>
+      <button ion-button (click)="openCalendar()" class="pickerButton" ion-button icon-right>
         
-        <ion-calendar [(ngModel)]="dateRange"
-            [options]="optionsRange"
-            [type]="type"
-            [format]="'YYYY-MM-DD'">
-      </ion-calendar>
-
         <ion-icon name="calendar-outline" class="calendar"></ion-icon>
       </button>
-      
-      <ion-button routerLink="/home/statistic/weekly/weekly-details" routerDirection="forward" shape="round" color="medium" class="getDetail">Get Detail</ion-button>
+
+      <ion-button shape="round" color="medium" class="getDetail">Get Detail</ion-button>
+
   </div>
 </ion-content>

@@ -41,10 +41,15 @@ ion-row, ion-col{
     margin-right: 20%;
 }
 
-.saveCopy{
-    margin-left: 80%;
-    margin-top: 2%;
+.pdf{
+    display: flex;
+    justify-content: flex-end;
 }
+
+// .saveCopy, .createPDF{
+//     margin-left: 80%;
+//     margin-top: 2%;
+// }
 
 .company{
     height: 50px;

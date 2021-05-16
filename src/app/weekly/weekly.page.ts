@@ -14,13 +14,12 @@ export class WeeklyPage implements OnInit {
 
   public logoImg: string;
 
-  // date: string;
-  // type: 'string';
-
-  dateRange: { from: string; to: string; };
-  type: 'string';
-  optionsRange: CalendarComponentOptions = {
-    pickMode: 'range'
+  dateRange: {
+    from: Date;
+    to: Date
+  } = {
+    from: new Date(),
+    to: new Date(Date.now() + 24 * 60 * 60 * 1000 * 7)
   };
 
   constructor(
@@ -60,26 +59,37 @@ export class WeeklyPage implements OnInit {
   async openCalendar() {
     const options: CalendarModalOptions = {
       pickMode: 'range',
-      title: 'RANGE'
+      title: 'RANGE',
+      defaultDateRange: this.dateRange,
+      canBackwardsSelected: true,
     };
-  
+
     const myCalendar = await this.modalCtrl.create({
       component: CalendarModal,
-      componentProps: { options }
+      componentProps: { options },
     });
-  
+
     myCalendar.present();
-  
+
     const event: any = await myCalendar.onDidDismiss();
-    const date = event.data;
-    const from: CalendarResult = date.from;
-    const to: CalendarResult = date.to;
-  
-    console.log(date, from, to);
+    const { data: date, role } = event;
+
+    if (role === 'done') {
+      this.dateRange = Object.assign(
+        {},
+        {
+          from: date.from.dateObj,
+          to: date.to.dateObj,
+        }
+      );
+    }
+    console.log(date);
+    console.log('role', role);
   }
 
   getWeeklyDetail(){
-    this.navCtrl.navigateForward('weekly-details');
+    // this.navCtrl.navigateForward('weekly-details');
+    // this.openCalendar();
   }
 
 }

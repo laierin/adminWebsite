@@ -17,7 +17,9 @@ import { from } from 'rxjs';
 import { GlobalVariable } from './global-variables';
 import 'firebase/firestore';
 import { CalendarModule } from 'ion2-calendar';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { File } from '@ionic-native/file/ngx';
+import { FileOpener } from '@ionic-native/file-opener/ngx';
 
 
 @NgModule({
@@ -36,9 +38,11 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     AngularFirestoreModule,
     CalendarModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [
+    File,
+    FileOpener,
     { 
     provide: RouteReuseStrategy, 
     useClass: IonicRouteStrategy 
