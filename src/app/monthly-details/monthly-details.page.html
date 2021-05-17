@@ -26,29 +26,14 @@
       <ion-button (click)="getDetails()" shape="round" color="medium" class="getDetail">Get Detail</ion-button>
   </div>
 
-  <br>
-  <br>
-  <strong class="recordGraph">*Graph of Monthly Records*</strong>
-  
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <!-- <img/> -->
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-
-  <!-- <div *ngFor="let r of testtt">
-    <ion-row>
-      <ion-col>
-        <p>{{r.aaaaa}}</p>
-      </ion-col>
-    </ion-row>
-  </div> -->
+  <ion-card>
+    <ion-card-header>
+      Line Chart
+    </ion-card-header>
+    <ion-card-content>
+      <canvas #lineCanvas id="lineCanvas"></canvas>
+    </ion-card-content>
+  </ion-card>
   
   <ion-grid class="Graphcontent">
     <ion-row>

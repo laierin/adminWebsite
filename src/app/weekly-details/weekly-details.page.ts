@@ -107,6 +107,7 @@ export class WeeklyDetailsPage implements OnInit {
   getDetail(){
     this.datePicker = new Date(this.datePicker);
     console.log(this.datePicker);
+    
     this.first = 0;
     this.second = 0;
     this.third = 0;
@@ -122,7 +123,9 @@ export class WeeklyDetailsPage implements OnInit {
     this.fiveArray = [];
     this.sixArray = [];
     this.lastArray = [];
+
     this.lineChart.destroy();
+
     this.getWeektoString();
     this.getTotalCustomerData();
     this.getTotalDependentData();
@@ -304,24 +307,26 @@ export class WeeklyDetailsPage implements OnInit {
           {
             label: 'Sell per week',
             fill: false,
-            // lineTension: 0.1,
+            tension: 0.05,
             backgroundColor: 'rgba(75,192,192,0.4)',
             borderColor: 'rgba(75,192,192,1)',
             borderCapStyle: 'butt',
             borderDash: [],
             borderDashOffset: 0.0,
-            borderJoinStyle: 'miter',
+            borderJoinStyle: 'round',
+            
             pointBorderColor: 'rgba(75,192,192,1)',
             pointBackgroundColor: '#fff',
-            pointBorderWidth: 1,
-            pointHoverRadius: 5,
+            pointBorderWidth: 5,
+            pointHoverRadius: 6,
             pointHoverBackgroundColor: 'rgba(75,192,192,1)',
             pointHoverBorderColor: 'rgba(220,220,220,1)',
-            pointHoverBorderWidth: 2,
+            pointHoverBorderWidth: 1,
             pointRadius: 1,
             pointHitRadius: 10,
+
             data: [this.first, this.second, this.third, this.fouth, this.five, this.six, this.last],
-            // data: [this.first, 2, 5, 1, 2, 6, 3],
+            // data: [7, 2, 5, 1, 2, 6, 3],
             spanGaps: false,
           }
         ]
