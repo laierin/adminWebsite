@@ -20,6 +20,12 @@ ion-icon{
     position: absolute;
 }
 
+ion-content{
+    --padding-top: 1%;
+    --padding-start: 50px;
+    --padding-end: 50px;
+}
+
 .pickerButton{
     width: 150px;
     height: 45px;
@@ -46,13 +52,13 @@ ion-row, ion-col{
 .pdf{
     display: flex;
     justify-content: flex-end;
-    margin: 0 20px;
+    // margin: 0 20px;
 }
 
-.reminder{
-    margin: 0 50px;
-}
+// .reminder{
+//     margin: 0 50px;
+// }
 
-ion-grid{
-    margin: 0 20px;
-}
+// ion-grid{
+//     margin: 0 20px;
+// }

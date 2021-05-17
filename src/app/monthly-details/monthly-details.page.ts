@@ -92,6 +92,7 @@ export class MonthlyDetailsPage implements OnInit {
   public date_29_Array = [];
   public date_30_Array = [];
   public date_31_Array = [];
+  public allArray = [];
 
   constructor(
     public navCtrl: NavController,
@@ -173,6 +174,11 @@ export class MonthlyDetailsPage implements OnInit {
     this.date_30 = 0;
     this.date_31 = 0;
 
+    this.total = 0;
+    this.average = 0;
+    this.highest = 0;
+    this.lowest = 0;
+
     this.date_1_Array = [];
     this.date_2_Array = [];
     this.date_3_Array = [];
@@ -204,6 +210,7 @@ export class MonthlyDetailsPage implements OnInit {
     this.date_29_Array = [];
     this.date_30_Array = [];
     this.date_31_Array = [];
+    this.allArray = [];
 
     this.lineChart.destroy();
 
@@ -613,6 +620,10 @@ export class MonthlyDetailsPage implements OnInit {
         }
       });
       this.arrayData();
+      this.getTotal();
+      this.getAverage();
+      this.getHighest();
+      this.getLowest();
     });
   }
 
@@ -648,6 +659,38 @@ export class MonthlyDetailsPage implements OnInit {
     this.date_29 = this.date_29_Array.length;
     this.date_30 = this.date_30_Array.length;
     this.date_31 = this.date_31_Array.length;
+
+    this.allArray.push(this.date_1_Array.length);
+    this.allArray.push(this.date_2_Array.length);
+    this.allArray.push(this.date_3_Array.length);
+    this.allArray.push(this.date_4_Array.length);
+    this.allArray.push(this.date_5_Array.length);
+    this.allArray.push(this.date_6_Array.length);
+    this.allArray.push(this.date_7_Array.length);
+    this.allArray.push(this.date_8_Array.length);
+    this.allArray.push(this.date_9_Array.length);
+    this.allArray.push(this.date_10_Array.length);
+    this.allArray.push(this.date_11_Array.length);
+    this.allArray.push(this.date_12_Array.length);
+    this.allArray.push(this.date_13_Array.length);
+    this.allArray.push(this.date_14_Array.length);
+    this.allArray.push(this.date_15_Array.length);
+    this.allArray.push(this.date_16_Array.length);
+    this.allArray.push(this.date_17_Array.length);
+    this.allArray.push(this.date_18_Array.length);
+    this.allArray.push(this.date_19_Array.length);
+    this.allArray.push(this.date_20_Array.length);
+    this.allArray.push(this.date_21_Array.length);
+    this.allArray.push(this.date_22_Array.length);
+    this.allArray.push(this.date_23_Array.length);
+    this.allArray.push(this.date_24_Array.length);
+    this.allArray.push(this.date_25_Array.length);
+    this.allArray.push(this.date_26_Array.length);
+    this.allArray.push(this.date_27_Array.length);
+    this.allArray.push(this.date_28_Array.length);
+    this.allArray.push(this.date_29_Array.length);
+    this.allArray.push(this.date_30_Array.length);
+    this.allArray.push(this.date_31_Array.length);
 
     console.log(this.date_1)
     console.log(this.date_2)
@@ -693,7 +736,7 @@ export class MonthlyDetailsPage implements OnInit {
                 '21', '22', '23', '24', '25', '26', '27', '28', '29', '30','31'],
         datasets: [
           {
-            label: 'Sell per week',
+            label: 'Total Number of People',
             fill: false,
             tension: 0.05,
             backgroundColor: 'rgba(75,192,192,0.4)',
@@ -727,16 +770,26 @@ export class MonthlyDetailsPage implements OnInit {
   }
 
   getTotal(){
-    // this.total;
+    for(var x=0; x<this.allArray.length; x++){
+      this.total = this.total + (this.allArray[x])
+    }
+    console.log("Total: " + this.total )
   }
+
   getAverage(){
-    // this.average;
+    this.average = this.total/31;
+    console.log("Average: " + this.average.toFixed(2))
   }
+
   getHighest(){
-    // this.highest;
+    this.highest = Math.max(...this.allArray);
+    console.log("Highest: " + this.highest)
+
   }
+
   getLowest(){
-    // this.lowest;
+    this.lowest = Math.min(...this.allArray);
+    console.log("Lowest: " + this.lowest)
   }
   
 }

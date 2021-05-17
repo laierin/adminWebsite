@@ -1,7 +1,5 @@
-.Graphcontent{
-    margin-left: 30%;
-    margin-right: 10%;
-    margin-top: 2%;
+.title{
+    text-align: center;
 }
 
 .content{
@@ -12,7 +10,9 @@
 }
 
 ion-content{
-    --padding-top: 2%;
+    --padding-top: 1%;
+    --padding-start: 50px;
+    --padding-end: 50px;
 }
 
 ion-icon{
@@ -42,25 +42,4 @@ ion-icon{
     height: 50px;
     width: auto;
     display: flex;
-  }
-
-.title{
-    margin-left: 45%;
 }
-
-.recordGraph{
-    text-align: center;
-    margin-left: 35%;
-    margin-right: 20%;
-}
-
-.saveCopy{
-    // height: 20px;
-    // width: auto;
-    margin-left: 60%;
-    margin-top: 5%;
-}
-
-
-
-

@@ -26,14 +26,9 @@
       <ion-button (click)="getDetail()" shape="round" color="medium" class="getDetail">Get Detail</ion-button>
   </div>
 
-  <!-- <p> FROM: {{firstDate}} </p>
-  <p>TO: {{lastDate}} </p> -->
-  <br>
-  <br>
-
   <ion-card>
-    <ion-card-header>
-      Line Chart
+    <ion-card-header color ="light">
+      {{firstDate}} - {{lastDate}}
     </ion-card-header>
     <ion-card-content>
       <canvas #lineCanvas id="lineCanvas"></canvas>
@@ -43,19 +38,19 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <strong>Highest:</strong>
+        <p><strong>Highest: </strong> {{highest}} people</p>
       </ion-col>
       <ion-col>
-        <strong>Lowest:</strong>
+        <p><strong>Lowest: </strong> {{lowest}} people</p>
       </ion-col>
     </ion-row>
 
     <ion-row>
       <ion-col>
-        <strong>Average:</strong>
+        <p><strong>Average: </strong> {{average.toFixed(2)}}</p>
       </ion-col>
       <ion-col>
-        <strong>Total:</strong>
+        <p><strong>Total: </strong> {{total}} people</p>
       </ion-col>
     </ion-row>
   </ion-grid>

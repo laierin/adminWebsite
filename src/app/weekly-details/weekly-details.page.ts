@@ -52,8 +52,7 @@ export class WeeklyDetailsPage implements OnInit {
   public fiveArray = [];
   public sixArray = [];
   public lastArray = [];
-
-  public test;
+  public allArray = [];
 
   constructor(
     public navCtrl: NavController,
@@ -84,7 +83,6 @@ export class WeeklyDetailsPage implements OnInit {
     this.getWeektoString();
     this.getTotalCustomerData();
     this.getTotalDependentData();
-    // this.lineChartMethod();
   }
 
   changeLogo(){
@@ -115,7 +113,12 @@ export class WeeklyDetailsPage implements OnInit {
     this.five = 0;
     this.six = 0;
     this.last = 0;
+
     this.total = 0;
+    this.average = 0;
+    this.highest = 0;
+    this.lowest = 0;
+    
     this.firstArray = [];
     this.secondArray = [];
     this.thirdArray = [];
@@ -123,14 +126,13 @@ export class WeeklyDetailsPage implements OnInit {
     this.fiveArray = [];
     this.sixArray = [];
     this.lastArray = [];
+    this.allArray = [];
 
     this.lineChart.destroy();
 
     this.getWeektoString();
     this.getTotalCustomerData();
     this.getTotalDependentData();
-    // this.lineChartMethod();
-    // this.arrayData();
   };
 
   getWeektoString(){
@@ -265,6 +267,10 @@ export class WeeklyDetailsPage implements OnInit {
         }
       });
       this.arrayData();
+      this.getTotal();
+      this.getAverage();
+      this.getHighest();
+      this.getLowest();
     });
   }
 
@@ -277,6 +283,14 @@ export class WeeklyDetailsPage implements OnInit {
     this.six = this.sixArray.length;
     this.last = this.lastArray.length;
 
+    this.allArray.push(this.firstArray.length);
+    this.allArray.push(this.secondArray.length);
+    this.allArray.push(this.thirdArray.length);
+    this.allArray.push(this.fouthArray.length);
+    this.allArray.push(this.fiveArray.length);
+    this.allArray.push(this.sixArray.length);
+    this.allArray.push(this.lastArray.length);
+
     console.log(this.first)
     console.log(this.second)
     console.log(this.third)
@@ -284,6 +298,7 @@ export class WeeklyDetailsPage implements OnInit {
     console.log(this.five)
     console.log(this.six)
     console.log(this.last)
+    console.log(this.allArray)
 
     this.lineChartMethod();
   }
@@ -305,7 +320,7 @@ export class WeeklyDetailsPage implements OnInit {
 
         datasets: [
           {
-            label: 'Sell per week',
+            label: 'Total Number of People',
             fill: false,
             tension: 0.05,
             backgroundColor: 'rgba(75,192,192,0.4)',
@@ -335,16 +350,26 @@ export class WeeklyDetailsPage implements OnInit {
   }
   
   getTotal(){
-    // this.total;
+    for(var x=0; x<this.allArray.length; x++){
+      this.total = this.total + (this.allArray[x])
+    }
+    console.log("Total: " + this.total )
   }
+
   getAverage(){
-    // this.average;
+    this.average = this.total/7;
+    console.log("Average: " + this.average.toFixed(2))
   }
+
   getHighest(){
-    // this.highest;
+    this.highest = Math.max(...this.allArray);
+    console.log("Highest: " + this.highest)
+
   }
+
   getLowest(){
-    // this.lowest;
+    this.lowest = Math.min(...this.allArray);
+    console.log("Lowest: " + this.lowest)
   }
 
 }

@@ -6,48 +6,52 @@
       <!-- back button -->
       <ion-back-button defaultHref="/"></ion-back-button>
       <ion-title>
-        <img src="../../assets/hnmLogo.png" class="company" alt="Company Logo"/>
+        <img [src]="logoImg" alt="Company Logo" class="company" />
       </ion-title>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-label class="title"><strong>Daily Record</strong></ion-label>
+  <p class="title"><strong>Weekly Record</strong></p>
   <div class="content">
       <p class="label">Date:</p>
       <button class="pickerButton" ion-button icon-right>
         <ion-datetime class="picker"
           #picker pickerFormat="DD MMMM YYYY" 
           displayFormat="DD MMMM YYYY"  
-          [min]="datePickerMin" 
-          [(ngModel)]="dateSelected"
-          (ionChange)="changeDate(datePicker)">
+          [(ngModel)]="dateSelected">
         </ion-datetime>
         <ion-icon name="calendar-outline" class="calendar"></ion-icon>
       </button>
       <ion-button (click)="renewData()" shape="round" color="medium" class="getDetail">Get Detail</ion-button>
   </div>
 
-  <strong class="recordGraph">*Graph of Daily Records*</strong>
-  <!-- <img/> -->
-  <ion-button shape="round" color="medium" class="saveCopy">Save a Copy</ion-button>
-  <ion-grid class="Graphcontent">
+  <ion-card>
+    <ion-card-header color ="light">
+      <!-- {{e}} -->
+    </ion-card-header>
+    <ion-card-content>
+      <canvas #lineCanvas id="lineCanvas"></canvas>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-grid>
     <ion-row>
       <ion-col>
-        <strong>Highest: {{highestValue}}</strong>
+        <p><strong>Highest: </strong> {{highestValue}} people</p>
       </ion-col>
       <ion-col>
-        <strong>Lowest: {{lowestValue}}</strong>
+        <p><strong>Lowest: </strong> {{lowestValue}} people</p>
       </ion-col>
     </ion-row>
 
     <ion-row>
       <ion-col>
-        <strong>Average: {{average}}</strong>
+        <p><strong>Average: </strong> {{average.toFixed(2)}}</p>
       </ion-col>
       <ion-col>
-        <strong>Total: {{total}}</strong>
+        <p><strong>Total: </strong> {{total}} people</p>
       </ion-col>
     </ion-row>
   </ion-grid>
