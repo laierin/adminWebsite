@@ -13,11 +13,14 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../environments/environment'
+
 import { from } from 'rxjs';
 import { GlobalVariable } from './global-variables';
 import 'firebase/firestore';
+
 import { CalendarModule } from 'ion2-calendar';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { File } from '@ionic-native/file/ngx';
 import { FileOpener } from '@ionic-native/file-opener/ngx';
 

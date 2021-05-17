@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ElementRef, ViewChild  } from '@angular/core';
 import { AlertController, NavController, Platform } from '@ionic/angular';
 
 import { AngularFirestore } from '@angular/fire/firestore';
 import { GlobalVariable } from '../global-variables';
 import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
+
+import { Chart, registerables } from 'chart.js';
+Chart.register(...registerables);
 
 @Component({
   selector: 'app-weekly-details',
@@ -11,6 +14,9 @@ import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
   styleUrls: ['./weekly-details.page.scss'],
 })
 export class WeeklyDetailsPage implements OnInit {
+  
+  @ViewChild('lineCanvas', {static: true}) lineCanvas: ElementRef;
+  lineChart: any;
   
   public logoImg: string;
 
@@ -39,7 +45,15 @@ export class WeeklyDetailsPage implements OnInit {
   public highest = 0;
   public lowest = 0;
 
+  public firstArray = [];
+  public secondArray = [];
+  public thirdArray = [];
+  public fouthArray = [];
+  public fiveArray = [];
+  public sixArray = [];
+  public lastArray = [];
 
+  public test;
 
   constructor(
     public navCtrl: NavController,
@@ -70,7 +84,7 @@ export class WeeklyDetailsPage implements OnInit {
     this.getWeektoString();
     this.getTotalCustomerData();
     this.getTotalDependentData();
-
+    // this.lineChartMethod();
   }
 
   changeLogo(){
@@ -101,9 +115,19 @@ export class WeeklyDetailsPage implements OnInit {
     this.six = 0;
     this.last = 0;
     this.total = 0;
+    this.firstArray = [];
+    this.secondArray = [];
+    this.thirdArray = [];
+    this.fouthArray = [];
+    this.fiveArray = [];
+    this.sixArray = [];
+    this.lastArray = [];
+    this.lineChart.destroy();
     this.getWeektoString();
     this.getTotalCustomerData();
     this.getTotalDependentData();
+    // this.lineChartMethod();
+    // this.arrayData();
   };
 
   getWeektoString(){
@@ -135,34 +159,50 @@ export class WeeklyDetailsPage implements OnInit {
 
         if(this.firstDate == resp2.get('Customer_WalkInDate'))
         {
-          this.first ++;
-          console.log("1" + " " + this.first)
+          console.log("1" + " " + "cus")
+          this.firstArray.push({
+            dateOfWeek: resp2.get('Customer_WalkInDate')
+          })
+          
         }else if(this.secondDate == resp2.get('Customer_WalkInDate'))
         {
-          this.second ++;
-          console.log("2" + " " + this.second)
+          console.log("2" + " " + "cus")
+          this.secondArray.push({
+            dateOfWeek: resp2.get('Customer_WalkInDate')
+          })
         }else if(this.thirdDate == resp2.get('Customer_WalkInDate'))
         {
-          this.third ++;
-          console.log("3" + " " + this.third)
+          console.log("3" + " " + "cus")
+          this.thirdArray.push({
+            dateOfWeek: resp2.get('Customer_WalkInDate')
+          })
         }else if(this.fouthDate == resp2.get('Customer_WalkInDate'))
         {
-          this.fouth ++;
-          console.log("4" + " " + this.fouth)
+          console.log("4" + " " + "cus")
+          this.fouthArray.push({
+            dateOfWeek: resp2.get('Customer_WalkInDate')
+          })
         }else if(this.fiveDate == resp2.get('Customer_WalkInDate'))
         {
-          this.five ++;
-          console.log("5" + " " + this.five)
+          console.log("5" + " " + "cus")
+          this.fiveArray.push({
+            dateOfWeek: resp2.get('Customer_WalkInDate')
+          })
         }else if(this.sixDate == resp2.get('Customer_WalkInDate'))
         {
-          this.six ++;
-          console.log("6" + " " + this.six)
+          console.log("6" + " " + "cus")
+          this.sixArray.push({
+            dateOfWeek: resp2.get('Customer_WalkInDate')
+          })
         }else if(this.lastDate == resp2.get('Customer_WalkInDate'))
         {
-          this.last ++;
-          console.log("7" + " " + this.last)
+          console.log("7" + " " + "cus")
+          this.lastArray.push({
+            dateOfWeek: resp2.get('Customer_WalkInDate')
+          })
         }
       });
+      // this.arrayData();
     });
   }
 
@@ -173,37 +213,121 @@ export class WeeklyDetailsPage implements OnInit {
 
         if(this.firstDate == resp2.get('Date'))
         {
-          this.first ++;
-          console.log("1" + " " + this.first + "dep")
+          console.log("1" + " " + "dep")
+          this.firstArray.push({
+            dateOfWeek: resp2.get('Date')
+          })
+
         }else if(this.secondDate == resp2.get('Date'))
         {
-          this.second ++;
-          console.log("2" + " " + this.second + "dep")
+          console.log("2" + " " + "dep")
+          this.secondArray.push({
+            dateOfWeek: resp2.get('Date')
+          })
+
         }else if(this.thirdDate == resp2.get('Date'))
         {
-          this.third ++;
-          console.log("3" + " " + this.third + "dep")
+          console.log("3" + " " + "dep")
+          this.thirdArray.push({
+            dateOfWeek: resp2.get('Date')
+          })
+
         }else if(this.fouthDate == resp2.get('Date'))
         {
-          this.fouth ++;
-          console.log("4" + " " + this.fouth + "dep")
+          console.log("4" + " " + "dep")
+          this.fouthArray.push({
+            dateOfWeek: resp2.get('Date')
+          })
+
         }else if(this.fiveDate == resp2.get('Date'))
         {
-          this.five ++;
-          console.log("5" + " " + this.five + "dep")
+          console.log("5" + " " + "dep")
+          this.fiveArray.push({
+            dateOfWeek: resp2.get('Date')
+          })
+
         }else if(this.sixDate == resp2.get('Date'))
         {
-          this.six ++;
-          console.log("6" + " " + this.six + "dep")
+          console.log("6" + " " + "dep")
+          this.sixArray.push({
+            dateOfWeek: resp2.get('Date')
+          })
+
         }else if(this.lastDate == resp2.get('Date'))
         {
-          this.last ++;
-          console.log("7" + " " + this.last + "dep")
+          console.log("7" + " " + "dep")
+          this.lastArray.push({
+            dateOfWeek: resp2.get('Date')
+          })
         }
       });
+      this.arrayData();
     });
   }
 
+  arrayData(){
+    this.first = this.firstArray.length;
+    this.second = this.secondArray.length;
+    this.third = this.thirdArray.length;
+    this.fouth = this.fouthArray.length;
+    this.five = this.fiveArray.length;
+    this.six = this.sixArray.length;
+    this.last = this.lastArray.length;
+
+    console.log(this.first)
+    console.log(this.second)
+    console.log(this.third)
+    console.log(this.fouth)
+    console.log(this.five)
+    console.log(this.six)
+    console.log(this.last)
+
+    this.lineChartMethod();
+  }
+
+  lineChartMethod() {
+    this.lineChart = new Chart(this.lineCanvas.nativeElement, {
+      type: 'line',
+      data: {
+        // labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        labels: [
+          this.firstDate.split(' ') [0] + " " + this.firstDate.split(' ') [1] + " " + this.firstDate.split(' ') [2], 
+          this.secondDate.split(' ') [0] + " " + this.secondDate.split(' ') [1] + " " + this.secondDate.split(' ') [2],
+          this.thirdDate.split(' ') [0] + " " + this.thirdDate.split(' ') [1] + " " + this.thirdDate.split(' ') [2], 
+          this.fouthDate.split(' ') [0] + " " + this.fouthDate.split(' ') [1] + " " + this.fouthDate.split(' ') [2],
+          this.fiveDate.split(' ') [0] + " " + this.fiveDate.split(' ') [1] + " " + this.fiveDate.split(' ') [2],
+          this.sixDate.split(' ') [0] + " " + this.sixDate.split(' ') [1] + " " + this.sixDate.split(' ') [2],
+          this.lastDate.split(' ') [0] + " " + this.lastDate.split(' ') [1] + " " + this.lastDate.split(' ') [2]
+        ],
+
+        datasets: [
+          {
+            label: 'Sell per week',
+            fill: false,
+            // lineTension: 0.1,
+            backgroundColor: 'rgba(75,192,192,0.4)',
+            borderColor: 'rgba(75,192,192,1)',
+            borderCapStyle: 'butt',
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJoinStyle: 'miter',
+            pointBorderColor: 'rgba(75,192,192,1)',
+            pointBackgroundColor: '#fff',
+            pointBorderWidth: 1,
+            pointHoverRadius: 5,
+            pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+            pointHoverBorderColor: 'rgba(220,220,220,1)',
+            pointHoverBorderWidth: 2,
+            pointRadius: 1,
+            pointHitRadius: 10,
+            data: [this.first, this.second, this.third, this.fouth, this.five, this.six, this.last],
+            // data: [this.first, 2, 5, 1, 2, 6, 3],
+            spanGaps: false,
+          }
+        ]
+      }
+    });
+  }
   
   getTotal(){
     // this.total;

@@ -67,6 +67,7 @@ export class DailyDetailsPage implements OnInit {
     }
 
     renewData(){
+
     this.firstThreeHours = []
     this.secondThreeHours = []
     this.thirdThreeHours = []
@@ -76,6 +77,7 @@ export class DailyDetailsPage implements OnInit {
     this.seventhThreeHours = []
     this.eighthThreeHours = []
     this.timeArray = []
+
     this.total = 0
     this.highestValue = 0
     this.lowestValue = 0
@@ -122,12 +124,16 @@ export class DailyDetailsPage implements OnInit {
         resp.forEach(resp2 =>{
           console.log("Comparing Date...")
           console.log(resp2.get('Customer_WalkInDate'))
+
           if(this.dateSelected == resp2.get('Customer_WalkInDate')){
             console.log("Date Comparing Done")
+            
             let dbTime = resp2.get('Customer_WalkInTime').split(':')[0]; 
             let dbPeriod = resp2.get('Customer_WalkInTime').split(' ')[1];
+            
             console.log(dbTime)
             console.log(dbPeriod)
+
             if(((dbTime == '12') || (dbTime == '1') || (dbTime == '2')) && (dbPeriod == 'AM')){
               console.log("Pushing Data...")
               this.firstThreeHours.push({
