@@ -104,6 +104,7 @@ export class CustomerDetailsPage implements OnInit {
         .get().subscribe(resp3 => {
           resp3.forEach(resp4 => {
             if(this.dateSelected == resp2.get('Customer_WalkInDate')){
+              console.log("Customer")
               this.customerArray.push({
                 customerID: resp4.get('Customer_ID'), //Customer
                 customerName: resp4.get('Customer_Name'), //Customer
@@ -133,6 +134,7 @@ export class CustomerDetailsPage implements OnInit {
                 .get().subscribe(resp7 => {
                   resp7.forEach(resp8 => {
                     if(this.dateSelected == resp2.get('Date')){
+                      console.log("Dependent")
                       this.dependentArray.push({
                         dependentName: resp4.get('Dependent_Name'), //Dependent 
                         dependentPhoneNum: resp8.get('Customer_Contact'), //Customer 

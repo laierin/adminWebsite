@@ -56,13 +56,16 @@ export class MonthlyPage implements OnInit {
     if(this.datePicker == null){
       this.presentAlertPrompt();
     }else{
+
       this.choosenDate = new Date(this.datePicker).toDateString();
       console.log(this.choosenDate);
+
       this.choosenMonth= this.choosenDate.split(' ')[1] + " " + this.choosenDate.split(' ')[3] ;
       console.log(this.choosenMonth);
   
       let navigationExtra: NavigationExtras ={
         state:{
+          selectedDate: this.choosenDate,
           selectedMonth: this.choosenMonth
         }
       };

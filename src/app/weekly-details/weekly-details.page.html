@@ -19,12 +19,16 @@
         <ion-datetime class="picker"
           #picker pickerFormat="DD MMMM YYYY" 
           displayFormat="DD MMMM YYYY"
-          [(ngModel)]="datePicker" >
+          [(ngModel)]="date" >
         </ion-datetime>
         <ion-icon name="calendar-outline" class="calendar"></ion-icon>
       </button>
       <ion-button (click)="getDetail()" shape="round" color="medium" class="getDetail">Get Detail</ion-button>
   </div>
+
+  <ion-text  color="danger" style="text-align: center;">
+    <p>*Choose the first date of the week*</p>
+  </ion-text>
 
   <ion-card>
     <ion-card-header color ="light">

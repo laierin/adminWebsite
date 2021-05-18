@@ -13,7 +13,7 @@
 </ion-header>
 
 <ion-content>
-  <p class="title"><strong>Weekly Record</strong></p>
+  <p class="title"><strong>Daily Record</strong></p>
   <div class="content">
       <p class="label">Date:</p>
       <button class="pickerButton" ion-button icon-right>
@@ -29,7 +29,7 @@
 
   <ion-card>
     <ion-card-header color ="light">
-      <!-- {{e}} -->
+      <!-- {{dateSelectedTitle}} -->
     </ion-card-header>
     <ion-card-content>
       <canvas #lineCanvas id="lineCanvas"></canvas>
@@ -51,7 +51,7 @@
         <p><strong>Average: </strong> {{average.toFixed(2)}}</p>
       </ion-col>
       <ion-col>
-        <p><strong>Total: </strong> {{total}} people</p>
+        <p><strong>Total: </strong> {{finalTotal}} people</p>
       </ion-col>
     </ion-row>
   </ion-grid>

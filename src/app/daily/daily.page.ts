@@ -3,7 +3,7 @@ import { NavController,AlertController } from '@ionic/angular';
 
 import { Router, NavigationExtras } from '@angular/router';
 import { GlobalVariable } from '../global-variables';
-import { AngularFirestore } from '@angular/fire/firestore';
+// import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-daily',
@@ -21,7 +21,7 @@ export class DailyPage implements OnInit {
     public router: Router,
     public alertController: AlertController,
     public globalVar: GlobalVariable,
-    public afs: AngularFirestore,
+    // public afs: AngularFirestore,
     ) { 
       this.globalVar = globalVar;
     }
@@ -50,7 +50,7 @@ export class DailyPage implements OnInit {
   changeDate(){
     this.dateSelected = new Date(this.datePicker).toDateString();
     console.log(this.dateSelected);
-    //this.router.navigate(['home/statistic/daily/daily-details']);
+    console.log("aaaa" + this.datePicker);
   };
 
   checkDate(){
@@ -62,8 +62,10 @@ export class DailyPage implements OnInit {
   };
 
   passSelectedDate() { //pass date to next page
+    this.changeDate();
     let navigationExtras: NavigationExtras = {
       state: {
+        selectedDateFull: this.datePicker,
         selectedDate: this.dateSelected
       }
     };

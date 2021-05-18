@@ -31,6 +31,7 @@ export class WeeklyDetailsPage implements OnInit {
   public lastDate;
 
   public chooseFirstDate;
+  public date;
 
   public first = 0;
   public second = 0;
@@ -67,6 +68,7 @@ export class WeeklyDetailsPage implements OnInit {
       if(this.router.getCurrentNavigation().extras.state){
         
         this.datePicker = this.router.getCurrentNavigation().extras.state.chooseDate;
+        this.date = this.router.getCurrentNavigation().extras.state.dateString;
         // this.secondDate = this.router.getCurrentNavigation().extras.state.date_2;
         // this.thirdDate = this.router.getCurrentNavigation().extras.state.date_3;
         // this.fouthDate = this.router.getCurrentNavigation().extras.state.date_4;
@@ -103,7 +105,7 @@ export class WeeklyDetailsPage implements OnInit {
   }
 
   getDetail(){
-    this.datePicker = new Date(this.datePicker);
+    this.datePicker = new Date(this.date);
     console.log(this.datePicker);
     
     this.first = 0;
@@ -137,15 +139,15 @@ export class WeeklyDetailsPage implements OnInit {
 
   getWeektoString(){
 
-    this.chooseFirstDate = new Date(this.datePicker);
+    // this.chooseFirstDate = new Date(this.datePicker);
       
-    this.firstDate = new Date(this.chooseFirstDate).toDateString();
-    this.secondDate = new Date(this.chooseFirstDate - - 24 * 60 * 60 * 1000).toDateString();
-    this.thirdDate = new Date(this.chooseFirstDate - - 2 * 24 * 60 * 60 * 1000).toDateString();
-    this.fouthDate = new Date(this.chooseFirstDate - - 3 * 24 * 60 * 60 * 1000).toDateString();
-    this.fiveDate = new Date(this.chooseFirstDate - - 4 * 24 * 60 * 60 * 1000).toDateString();
-    this.sixDate = new Date(this.chooseFirstDate - - 5 * 24 * 60 * 60 * 1000).toDateString();
-    this.lastDate = new Date(this.chooseFirstDate - - 6 * 24 * 60 * 60 * 1000).toDateString();
+    this.firstDate = new Date(this.datePicker).toDateString();
+    this.secondDate = new Date(this.datePicker - - 24 * 60 * 60 * 1000).toDateString();
+    this.thirdDate = new Date(this.datePicker - - 2 * 24 * 60 * 60 * 1000).toDateString();
+    this.fouthDate = new Date(this.datePicker - - 3 * 24 * 60 * 60 * 1000).toDateString();
+    this.fiveDate = new Date(this.datePicker - - 4 * 24 * 60 * 60 * 1000).toDateString();
+    this.sixDate = new Date(this.datePicker - - 5 * 24 * 60 * 60 * 1000).toDateString();
+    this.lastDate = new Date(this.datePicker - - 6 * 24 * 60 * 60 * 1000).toDateString();
 
     console.log(this.firstDate);
     console.log(this.secondDate);

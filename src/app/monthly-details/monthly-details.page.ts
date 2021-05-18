@@ -105,6 +105,7 @@ export class MonthlyDetailsPage implements OnInit {
       this.globalVar = globalVar; 
       this.route.queryParams.subscribe(params =>{
         if(this.router.getCurrentNavigation().extras.state){
+          this.dateSelected = this.router.getCurrentNavigation().extras.state.selectedDate;
           this.monthSelected = this.router.getCurrentNavigation().extras.state.selectedMonth;
           console.log(this.monthSelected)
         }
@@ -112,6 +113,7 @@ export class MonthlyDetailsPage implements OnInit {
     }
 
   ngOnInit() {
+    console.log("Second Page")
     this.changeLogo();
     this.getTotalCustomer();
     this.getTotalDependent();
@@ -137,10 +139,16 @@ export class MonthlyDetailsPage implements OnInit {
 
   getDetails(){
     console.log("Second page detail button");
+
     this.dateSelected = new Date(this.dateSelected).toDateString();
+
     console.log(this.dateSelected);
+
     this.monthSelected = this.dateSelected.split(' ')[1] + " " + this.dateSelected.split(' ')[3] ;
+
     console.log(this.monthSelected);
+    console.log("errrrrrrrr");
+
     // all clear array
     this.date_1 = 0;
     this.date_2 = 0;

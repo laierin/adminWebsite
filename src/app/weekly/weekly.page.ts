@@ -65,7 +65,7 @@ export class WeeklyPage implements OnInit {
     
     this.chooseFirstDate = new Date(this.datePicker);
       
-    // this.firstDate = new Date(this.chooseFirstDate).toDateString();
+    this.firstDate = new Date(this.chooseFirstDate).toDateString();
     // this.secondDate = new Date(this.chooseFirstDate - - 24 * 60 * 60 * 1000).toDateString();
     // this.thirdtDate = new Date(this.chooseFirstDate - - 2 * 24 * 60 * 60 * 1000).toDateString();
     // this.fouthDate = new Date(this.chooseFirstDate - - 3 * 24 * 60 * 60 * 1000).toDateString();
@@ -85,6 +85,7 @@ export class WeeklyPage implements OnInit {
     let navigationExtra: NavigationExtras ={
       state:{
         chooseDate: this.chooseFirstDate,
+        dateString: this.firstDate,
         // date_2: this.secondDate,
         // date_3: this.thirdtDate,
         // date_4: this.fouthDate,
